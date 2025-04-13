@@ -20,6 +20,9 @@ module.exports = {
           'gray-800': '#121212',  // Dark gray
         }
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [],

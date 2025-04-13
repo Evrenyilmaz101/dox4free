@@ -57,27 +57,37 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Hero Section */}
-      <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-          Free Online Conversion Tools & Calculators
-        </h1>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-          Your one-stop platform for unit conversions, document transformations, and specialized calculators. Always free, no signup required.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link 
-            to="/unit-converters" 
-            className="px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition duration-300"
-          >
-            Unit Converters
-          </Link>
-          <Link 
-            to="/document-conversion" 
-            className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition duration-300"
-          >
-            Document Tools
-          </Link>
+      {/* Hero Section with Radiating Effect */}
+      <div className="relative text-center mb-20 py-16 rounded-xl border border-gray-800 overflow-hidden">
+        {/* Radial gradient background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-radial from-primary/30 via-primary/10 to-transparent opacity-70 transform scale-110 hero-gradient-1"></div>
+          <div className="absolute inset-0 bg-gradient-radial from-secondary/20 via-secondary/5 to-transparent opacity-60 transform scale-125 hero-gradient-2" style={{ transformOrigin: 'bottom right' }}></div>
+          <div className="absolute inset-0 bg-black opacity-60"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white text-shadow-glow">
+            Free Online Conversion Tools & Calculators
+          </h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            Your one-stop platform for unit conversions, document transformations, and specialized calculators. Always free, no signup required.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link 
+              to="/unit-converters" 
+              className="px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition duration-300"
+            >
+              Unit Converters
+            </Link>
+            <Link 
+              to="/document-conversion" 
+              className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition duration-300"
+            >
+              Document Tools
+            </Link>
+          </div>
         </div>
       </div>
 
