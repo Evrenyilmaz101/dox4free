@@ -5,28 +5,48 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-transparent z-50 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <header className="bg-gradient-to-r from-purple-900 via-purple-800 to-indigo-900 shadow-lg z-50 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-white">Dox4Free</span>
-              <span className="ml-2 text-sm bg-primary px-2 py-1 rounded-md">Beta</span>
+              <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-indigo-300 font-['Montserrat',_sans-serif]">Dox4Free</span>
+              <span className="ml-2 text-xs font-bold bg-purple-500 px-2 py-0.5 rounded-md text-white">Beta</span>
             </Link>
           </div>
           
           {/* Desktop navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <Link to="/unit-converters" className="text-white hover:text-gray-200">Unit Converters</Link>
-            <Link to="/document-conversion" className="text-white hover:text-gray-200">Document Tools</Link>
-            <Link to="/calculators" className="text-white hover:text-gray-200">Calculators</Link>
-            <Link to="/engineering-specs" className="text-white hover:text-gray-200">Engineering</Link>
+          <nav className="hidden md:flex space-x-10">
+            <Link 
+              to="/unit-converters" 
+              className="text-purple-100 hover:text-white transition duration-200 text-lg font-['Poppins',_sans-serif] tracking-wide hover:underline decoration-2 underline-offset-8 decoration-purple-400"
+            >
+              Unit Converters
+            </Link>
+            <Link 
+              to="/document-conversion" 
+              className="text-purple-100 hover:text-white transition duration-200 text-lg font-['Poppins',_sans-serif] tracking-wide hover:underline decoration-2 underline-offset-8 decoration-purple-400"
+            >
+              Document Tools
+            </Link>
+            <Link 
+              to="/calculators" 
+              className="text-purple-100 hover:text-white transition duration-200 text-lg font-['Poppins',_sans-serif] tracking-wide hover:underline decoration-2 underline-offset-8 decoration-purple-400"
+            >
+              Calculators
+            </Link>
+            <Link 
+              to="/engineering-specs" 
+              className="text-purple-100 hover:text-white transition duration-200 text-lg font-['Poppins',_sans-serif] tracking-wide hover:underline decoration-2 underline-offset-8 decoration-purple-400"
+            >
+              Engineering
+            </Link>
           </nav>
           
           {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
             <button 
-              className="bg-gray-800 p-2 rounded-md text-white hover:bg-gray-700 focus:outline-none"
+              className="bg-purple-700 p-2 rounded-md text-white hover:bg-purple-600 focus:outline-none"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -40,31 +60,31 @@ const Header: React.FC = () => {
         {/* Mobile menu, show/hide based on menu state */}
         {isMenuOpen && (
           <div className="md:hidden mt-4">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div className="px-2 pt-2 pb-3 space-y-2 sm:px-3 rounded-lg bg-purple-900 bg-opacity-95">
               <Link 
                 to="/unit-converters" 
-                className="block px-3 py-2 rounded-md text-white hover:bg-gray-700"
+                className="block px-3 py-2 rounded-md text-white font-medium hover:bg-purple-700"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Unit Converters
               </Link>
               <Link 
                 to="/document-conversion" 
-                className="block px-3 py-2 rounded-md text-white hover:bg-gray-700"
+                className="block px-3 py-2 rounded-md text-white font-medium hover:bg-purple-700"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Document Tools
               </Link>
               <Link 
                 to="/calculators" 
-                className="block px-3 py-2 rounded-md text-white hover:bg-gray-700"
+                className="block px-3 py-2 rounded-md text-white font-medium hover:bg-purple-700"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Calculators
               </Link>
               <Link 
                 to="/engineering-specs" 
-                className="block px-3 py-2 rounded-md text-white hover:bg-gray-700"
+                className="block px-3 py-2 rounded-md text-white font-medium hover:bg-purple-700"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Engineering
