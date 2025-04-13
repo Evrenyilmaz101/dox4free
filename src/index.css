@@ -26,17 +26,17 @@ code {
 @keyframes pulse-slow {
   0% {
     opacity: 0.5;
-    transform: scale(0.95);
+    transform: scale(0.98);
     filter: brightness(0.8) saturate(0.9);
   }
   50% {
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.02);
     filter: brightness(1.3) saturate(1.5);
   }
   100% {
     opacity: 0.5;
-    transform: scale(0.95);
+    transform: scale(0.98);
     filter: brightness(0.8) saturate(0.9);
   }
 }
@@ -44,40 +44,41 @@ code {
 @keyframes pulse-reverse {
   0% {
     opacity: 0.6;
-    transform: scale(1.1);
+    transform: scale(1.05);
     filter: brightness(0.9) saturate(1);
   }
   50% {
     opacity: 0.9;
-    transform: scale(0.95);
+    transform: scale(0.98);
     filter: brightness(1.4) saturate(1.6);
   }
   100% {
     opacity: 0.6;
-    transform: scale(1.1);
+    transform: scale(1.05);
     filter: brightness(0.9) saturate(1);
   }
 }
 
-@keyframes rotate-slow {
-  0% {
-    transform: rotate(0deg) scale(1);
+/* Float animation for gradual vertical movement */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
   }
-  100% {
-    transform: rotate(360deg) scale(1);
+  50% {
+    transform: translateY(-10px);
   }
 }
 
 .hero-gradient-1 {
-  animation: pulse-slow 8s ease-in-out infinite;
+  animation: pulse-slow 15s ease-in-out infinite;
 }
 
 .hero-gradient-2 {
-  animation: pulse-reverse 12s ease-in-out infinite;
+  animation: pulse-reverse 18s ease-in-out infinite;
 }
 
 .hero-gradient-3 {
-  animation: pulse-slow 10s ease-in-out infinite 2s;
+  animation: pulse-slow 20s ease-in-out infinite 3s;
 }
 
 /* Additional animation for extra effect */
@@ -86,13 +87,13 @@ code {
     filter: brightness(0.9) hue-rotate(0deg);
   }
   25% {
-    filter: brightness(1.3) hue-rotate(15deg);
+    filter: brightness(1.2) hue-rotate(15deg);
   }
   50% {
-    filter: brightness(1.1) hue-rotate(-5deg);
+    filter: brightness(1) hue-rotate(-5deg);
   }
   75% {
-    filter: brightness(1.3) hue-rotate(-15deg);
+    filter: brightness(1.2) hue-rotate(-15deg);
   }
   100% {
     filter: brightness(0.9) hue-rotate(0deg);
@@ -100,7 +101,7 @@ code {
 }
 
 .hero-container {
-  animation: glow 15s ease-in-out infinite;
+  animation: glow 20s ease-in-out infinite, float 15s ease-in-out infinite;
   position: relative;
   box-shadow: 0 0 60px rgba(130, 0, 255, 0.3) inset;
 }

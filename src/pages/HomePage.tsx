@@ -59,46 +59,61 @@ const HomePage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Hero Section with Radiating Effect - Full width, no border */}
       <div 
-        className="relative text-center mb-20 py-20 -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden hero-container"
+        className="relative text-center mb-20 pt-28 pb-28 -mx-4 sm:-mx-6 lg:-mx-8 overflow-visible hero-container"
         style={{
           marginLeft: 'calc(-50vw + 50%)',
           marginRight: 'calc(-50vw + 50%)',
           width: '100vw',
+          position: 'relative',
         }}
       >
-        {/* Gradient background with stronger colors */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Purple gradient - brighter, more intense */}
+        {/* Extended gradient background with fade-out effect */}
+        <div className="absolute inset-0 overflow-visible" style={{ height: '130%' }}>
+          {/* Purple gradient - extending downward */}
           <div 
             className="absolute inset-0 opacity-90 hero-gradient-1"
             style={{ 
-              background: 'radial-gradient(circle at center, rgba(170, 0, 255, 0.7) 0%, rgba(120, 0, 255, 0.35) 45%, rgba(0, 0, 0, 0) 90%)',
-              transform: 'scale(1.2)'
+              background: 'radial-gradient(circle at top center, rgba(170, 0, 255, 0.7) 0%, rgba(120, 0, 255, 0.35) 45%, rgba(0, 0, 0, 0) 100%)',
+              transform: 'scale(1.5)',
+              transformOrigin: 'top center',
+              height: '150%',
             }}
           ></div>
           
-          {/* Blue gradient - brighter, more vibrant */}
+          {/* Blue gradient - extending downward */}
           <div 
             className="absolute inset-0 opacity-80 hero-gradient-2"
             style={{ 
-              background: 'radial-gradient(circle at bottom right, rgba(0, 80, 255, 0.7) 0%, rgba(0, 30, 200, 0.35) 45%, rgba(0, 0, 0, 0) 85%)',
-              transform: 'scale(1.5)',
-              transformOrigin: 'bottom right'
+              background: 'radial-gradient(circle at top right, rgba(0, 80, 255, 0.7) 0%, rgba(0, 30, 200, 0.35) 45%, rgba(0, 0, 0, 0) 100%)',
+              transform: 'scale(1.8)',
+              transformOrigin: 'top right',
+              height: '150%',
             }}
           ></div>
           
-          {/* Additional purple gradient from left - brighter */}
+          {/* Additional purple gradient - extending downward */}
           <div 
             className="absolute inset-0 opacity-80 hero-gradient-3"
             style={{ 
-              background: 'radial-gradient(circle at bottom left, rgba(200, 70, 255, 0.7) 0%, rgba(160, 0, 240, 0.35) 40%, rgba(0, 0, 0, 0) 80%)',
-              transform: 'scale(1.5)',
-              transformOrigin: 'bottom left'
+              background: 'radial-gradient(circle at top left, rgba(200, 70, 255, 0.7) 0%, rgba(160, 0, 240, 0.35) 40%, rgba(0, 0, 0, 0) 100%)',
+              transform: 'scale(1.8)',
+              transformOrigin: 'top left',
+              height: '150%',
             }}
           ></div>
           
-          {/* Black overlay for text readability - reduced opacity further */}
-          <div className="absolute inset-0 bg-black opacity-30"></div>
+          {/* Gradual fade to black */}
+          <div 
+            className="absolute inset-x-0 bottom-0 opacity-90"
+            style={{ 
+              background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)',
+              height: '60%',
+              top: '65%',
+            }}
+          ></div>
+          
+          {/* Black overlay for text readability with reduced opacity at bottom */}
+          <div className="absolute inset-0 bg-black opacity-20" style={{ height: '120%' }}></div>
         </div>
         
         {/* Content */}
