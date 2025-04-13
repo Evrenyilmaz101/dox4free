@@ -10,7 +10,7 @@ const HomePage: React.FC = () => {
         style={{ 
           backgroundImage: 'linear-gradient(#999999 1px, transparent 1px), linear-gradient(90deg, #999999 1px, transparent 1px)',
           backgroundSize: '20px 20px',
-          opacity: 0.25
+          opacity: 0.15
         }} 
       />
       
@@ -67,7 +67,7 @@ const HomePage: React.FC = () => {
       {/* Main Categories Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Unit Converters */}
-        <div className="bg-purple-800 bg-opacity-90 rounded-lg p-6 border border-purple-700 h-full flex flex-col" style={{ minHeight: "360px" }}>
+        <div className="bg-purple-800 bg-opacity-95 rounded-lg p-6 border border-purple-700 h-full flex flex-col" style={{ minHeight: "360px" }}>
           <div className="mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-purple-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
@@ -102,7 +102,7 @@ const HomePage: React.FC = () => {
         </div>
         
         {/* Document Conversion Tools */}
-        <div className="bg-purple-900 bg-opacity-90 rounded-lg p-6 border border-purple-800 h-full flex flex-col" style={{ minHeight: "360px" }}>
+        <div className="bg-purple-900 bg-opacity-95 rounded-lg p-6 border border-purple-800 h-full flex flex-col" style={{ minHeight: "360px" }}>
           <div className="mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-purple-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -137,7 +137,7 @@ const HomePage: React.FC = () => {
         </div>
         
         {/* Calculators */}
-        <div className="bg-indigo-900 bg-opacity-90 rounded-lg p-6 border border-indigo-800 h-full flex flex-col" style={{ minHeight: "360px" }}>
+        <div className="bg-indigo-900 bg-opacity-95 rounded-lg p-6 border border-indigo-800 h-full flex flex-col" style={{ minHeight: "360px" }}>
           <div className="mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-indigo-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -172,7 +172,7 @@ const HomePage: React.FC = () => {
         </div>
         
         {/* Industrial Reference Tools */}
-        <div className="bg-blue-900 bg-opacity-90 rounded-lg p-6 border border-blue-800 h-full flex flex-col" style={{ minHeight: "360px" }}>
+        <div className="bg-blue-900 bg-opacity-95 rounded-lg p-6 border border-blue-800 h-full flex flex-col" style={{ minHeight: "360px" }}>
           <div className="mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
@@ -209,7 +209,7 @@ const HomePage: React.FC = () => {
 
       {/* Why Choose Dox4Free Section */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
-        <div className="bg-gray-900 bg-opacity-80 rounded-xl p-8 border border-gray-800 shadow-2xl">
+        <div className="bg-gray-900 bg-opacity-95 rounded-xl p-8 border border-gray-800 shadow-2xl">
           <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center text-white font-['Montserrat',_sans-serif]">
             Why Choose Dox4Free
           </h2>
