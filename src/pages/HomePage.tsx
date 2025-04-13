@@ -57,17 +57,53 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Hero Section - Plain black background */}
+      {/* Hero Section with Sun-like Radiating Effect */}
       <div 
-        className="relative text-center mb-20 py-24 -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden"
+        className="relative text-center mb-20 py-24 -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden hero-container"
         style={{
           marginLeft: 'calc(-50vw + 50%)',
           marginRight: 'calc(-50vw + 50%)',
           width: '100vw',
           position: 'relative',
           backgroundColor: '#000000',
+          marginTop: '-80px', // Negative margin to remove top space
+          paddingTop: '120px', // Extra padding to compensate for negative margin
         }}
       >
+        {/* Sun-like radiating background */}
+        <div className="absolute inset-0 overflow-hidden" style={{ top: '-50px', height: '130%' }}>
+          {/* Primary sun-like radial gradient */}
+          <div 
+            className="absolute inset-0 sun-pulse-1"
+            style={{ 
+              background: 'radial-gradient(circle at center, rgba(180, 40, 240, 0.8) 0%, rgba(90, 0, 170, 0.5) 30%, rgba(20, 0, 40, 0.2) 50%, rgba(0, 0, 0, 0) 70%)',
+            }}
+          ></div>
+          
+          {/* Secondary blue-toned radial gradient */}
+          <div 
+            className="absolute inset-0 sun-pulse-2"
+            style={{ 
+              background: 'radial-gradient(circle at center, rgba(80, 100, 255, 0.5) 0%, rgba(40, 50, 200, 0.3) 30%, rgba(0, 0, 0, 0) 60%)',
+            }}
+          ></div>
+          
+          {/* Magenta highlight gradient */}
+          <div 
+            className="absolute inset-0 sun-pulse-3"
+            style={{ 
+              background: 'radial-gradient(circle at center, rgba(255, 0, 150, 0.5) 0%, rgba(200, 0, 120, 0.2) 20%, rgba(0, 0, 0, 0) 50%)',
+            }}
+          ></div>
+          
+          {/* Subtle rays emanating outward */}
+          <div 
+            className="absolute inset-0 sun-rays"
+            style={{ 
+              background: 'conic-gradient(from 0deg, rgba(180, 40, 240, 0) 0deg, rgba(180, 40, 240, 0.2) 10deg, rgba(180, 40, 240, 0) 20deg, rgba(80, 100, 255, 0) 20deg, rgba(80, 100, 255, 0.2) 30deg, rgba(80, 100, 255, 0) 40deg, rgba(255, 0, 150, 0) 40deg, rgba(255, 0, 150, 0.2) 50deg, rgba(255, 0, 150, 0) 60deg, rgba(180, 40, 240, 0) 60deg, rgba(180, 40, 240, 0.2) 70deg, rgba(180, 40, 240, 0) 80deg, rgba(80, 100, 255, 0) 80deg, rgba(80, 100, 255, 0.2) 90deg, rgba(80, 100, 255, 0) 100deg)',
+            }}
+          ></div>
+        </div>
         {/* Content */}
         <div className="relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
