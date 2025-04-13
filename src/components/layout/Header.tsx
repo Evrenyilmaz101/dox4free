@@ -10,8 +10,26 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-indigo-300 font-['Montserrat',_sans-serif]">Dox4Free</span>
-              <span className="ml-2 text-xs font-bold bg-purple-500 px-2 py-0.5 rounded-md text-white">Beta</span>
+              <div className="relative flex items-center">
+                <div className="mr-2 bg-gradient-to-br from-purple-400 to-indigo-500 rounded p-1.5 shadow-lg transform rotate-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-indigo-300 font-['Montserrat',_sans-serif] tracking-tight logo-text">
+                  <span className="relative inline-block">
+                    D<span className="text-white opacity-90 text-sm absolute -top-1 right-0 transform translate-x-1/2 logo-dot">•</span>
+                  </span>
+                  <span className="relative">ox</span>
+                  <span className="relative inline-block">
+                    4<span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 logo-underline"></span>
+                  </span>
+                  <span className="relative">
+                    Free
+                  </span>
+                </span>
+                <span className="ml-1 text-xs font-bold bg-gradient-to-r from-purple-600 to-pink-600 px-2 py-0.5 rounded-md text-white shadow-sm">Beta</span>
+              </div>
             </Link>
           </div>
           

@@ -18,8 +18,8 @@ body {
   background-color: #0c0c14;
   color: white;
   background-image: 
-    linear-gradient(#666666 1px, transparent 1px),
-    linear-gradient(90deg, #666666 1px, transparent 1px);
+    linear-gradient(#999999 1px, transparent 1px),
+    linear-gradient(90deg, #999999 1px, transparent 1px);
   background-size: 20px 20px;
   background-attachment: fixed;
 }
@@ -81,4 +81,31 @@ code {
   html {
     @apply bg-black text-white;
   }
+}
+
+/* Logo Animation */
+@keyframes logo-dot-pulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes logo-underline-slide {
+  0% { width: 0; opacity: 0.6; }
+  100% { width: 100%; opacity: 1; }
+}
+
+.logo-dot {
+  animation: logo-dot-pulse 3s infinite ease-in-out;
+}
+
+.logo-underline {
+  animation: logo-underline-slide 2s infinite alternate ease-in-out;
+}
+
+.logo-text {
+  transition: text-shadow 0.3s ease;
+}
+
+.logo-text:hover {
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
 }
