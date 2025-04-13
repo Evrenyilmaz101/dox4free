@@ -5,7 +5,6 @@ import './App.css';
 // Layout components
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-import Sidebar from './components/layout/Sidebar';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -17,21 +16,18 @@ import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-primary-dark to-secondary-dark text-white">
+    <div className="min-h-screen flex flex-col bg-black text-white">
       <Header />
-      <div className="flex flex-1">
-        <Sidebar />
-        <main className="flex-1 p-4">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/unit-converters/*" element={<UnitConverterPage />} />
-            <Route path="/document-conversion/*" element={<DocumentConversionPage />} />
-            <Route path="/calculators/*" element={<CalculatorsPage />} />
-            <Route path="/engineering-specs/*" element={<EngineeringSpecsPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </main>
-      </div>
+      <main className="flex-1 p-4 mx-auto w-full max-w-7xl">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/unit-converters/*" element={<UnitConverterPage />} />
+          <Route path="/document-conversion/*" element={<DocumentConversionPage />} />
+          <Route path="/calculators/*" element={<CalculatorsPage />} />
+          <Route path="/engineering-specs/*" element={<EngineeringSpecsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   );

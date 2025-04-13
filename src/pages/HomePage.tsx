@@ -59,7 +59,7 @@ const HomePage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Hero Section */}
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
           Free Online Conversion Tools & Calculators
         </h1>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
@@ -74,7 +74,7 @@ const HomePage: React.FC = () => {
           </Link>
           <Link 
             to="/document-conversion" 
-            className="px-6 py-3 bg-secondary hover:bg-secondary-dark text-white font-medium rounded-lg transition duration-300"
+            className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition duration-300"
           >
             Document Tools
           </Link>
@@ -92,12 +92,12 @@ const HomePage: React.FC = () => {
           <Link
             key={index}
             to={category.path}
-            className="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 transition duration-300 flex flex-col h-full"
+            className="bg-gray-900 hover:bg-gray-800 rounded-lg p-6 transition duration-300 flex flex-col h-full border border-gray-800"
           >
             <div className="text-primary mb-4">{category.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{category.title}</h3>
             <p className="text-gray-400 mb-4 flex-grow">{category.description}</p>
-            <div className="text-primary-dark hover:text-primary flex items-center mt-auto">
+            <div className="text-primary hover:text-white flex items-center mt-auto">
               <span>Explore tools</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -120,7 +120,7 @@ const HomePage: React.FC = () => {
             <Link
               key={index}
               to={tool.path}
-              className="bg-gray-800 hover:bg-gray-700 rounded-lg p-4 text-center transition duration-300"
+              className="bg-gray-900 hover:bg-gray-800 rounded-lg p-4 text-center transition duration-300 border border-gray-800"
             >
               <span className="block text-lg">{tool.name}</span>
             </Link>
@@ -129,7 +129,7 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Why Choose Us */}
-      <div className="bg-gray-800 rounded-lg p-8 mb-16">
+      <div className="bg-gray-900 rounded-lg p-8 mb-16 border border-gray-800">
         <h2 className="text-2xl font-bold mb-6 text-center">Why Choose Dox4Free</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center p-4">
