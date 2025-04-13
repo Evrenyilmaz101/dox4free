@@ -3,7 +3,17 @@ import { Link } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      {/* Grid Background Overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0" 
+        style={{ 
+          backgroundImage: 'linear-gradient(#999999 1px, transparent 1px), linear-gradient(90deg, #999999 1px, transparent 1px)',
+          backgroundSize: '20px 20px',
+          opacity: 0.25
+        }} 
+      />
+      
       {/* Hero Section with Sun-like Radiating Effect */}
       <div 
         className="relative text-center py-24 overflow-hidden hero-container h-screen flex items-center justify-center"
