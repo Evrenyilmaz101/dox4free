@@ -22,51 +22,6 @@ code {
     monospace;
 }
 
-/* Hero animation */
-@keyframes radial-pulse {
-  0% {
-    opacity: 0.5;
-    transform: scale(0.97);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.03);
-  }
-  100% {
-    opacity: 0.5;
-    transform: scale(0.97);
-  }
-}
-
-@keyframes radial-glow {
-  0% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 0.9;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-
-.hero-radial-glow {
-  animation: radial-glow 8s ease-in-out infinite;
-}
-
-.hero-radial-pulse {
-  animation: radial-pulse 12s ease-in-out infinite;
-}
-
-.hero-container {
-  position: relative;
-}
-
-/* Text effects */
-.text-shadow-glow {
-  text-shadow: 0 0 10px rgba(75, 0, 130, 0.7), 0 0 20px rgba(0, 0, 139, 0.5);
-}
-
 @layer base {
   html {
     @apply bg-black text-white;

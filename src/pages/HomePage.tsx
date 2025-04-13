@@ -57,39 +57,17 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Hero Section with centered radial glow and grid background */}
+      {/* Hero Section - Plain black background */}
       <div 
-        className="relative text-center mb-20 py-24 -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden hero-container"
+        className="relative text-center mb-20 py-24 -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden"
         style={{
           marginLeft: 'calc(-50vw + 50%)',
           marginRight: 'calc(-50vw + 50%)',
           width: '100vw',
           position: 'relative',
-          backgroundImage: 'linear-gradient(rgba(30, 0, 50, 0.95), rgba(5, 0, 15, 0.95)), url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'20\' height=\'20\' viewBox=\'0 0 20 20\'%3E%3Cg fill=\'%232d0047\' fill-opacity=\'0.4\'%3E%3Cpath fill-rule=\'evenodd\' d=\'M0 0h20v20H0V0zm1 1h18v18H1V1z\'/%3E%3C/g%3E%3C/svg%3E")',
-          backgroundSize: '20px 20px',
+          backgroundColor: '#000000',
         }}
       >
-        {/* Centered radial glow */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Main center radial gradient - purple */}
-          <div 
-            className="absolute inset-0 hero-radial-glow"
-            style={{ 
-              background: 'radial-gradient(circle at center, rgba(130, 0, 220, 0.8) 0%, rgba(90, 0, 170, 0.5) 25%, rgba(50, 0, 100, 0.3) 50%, rgba(0, 0, 0, 0) 70%)',
-              opacity: 0.8,
-            }}
-          ></div>
-          
-          {/* Secondary radial gradient for depth */}
-          <div 
-            className="absolute inset-0 hero-radial-pulse"
-            style={{ 
-              background: 'radial-gradient(circle at center, rgba(180, 60, 255, 0.6) 0%, rgba(90, 0, 190, 0.3) 30%, rgba(0, 0, 0, 0) 60%)',
-              opacity: 0.7,
-            }}
-          ></div>
-        </div>
-        
         {/* Content */}
         <div className="relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
