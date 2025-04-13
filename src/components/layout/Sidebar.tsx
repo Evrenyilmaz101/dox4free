@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 type CategoryType = {
   name: string;
   path: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   subcategories: {
     name: string;
     path: string;

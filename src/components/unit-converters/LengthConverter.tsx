@@ -61,6 +61,7 @@ const LengthConverter: React.FC = () => {
   // Convert whenever inputs change
   useEffect(() => {
     convert();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue, fromUnit, toUnit]);
 
   // Handle swap button click

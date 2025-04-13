@@ -101,6 +101,7 @@ const BmiCalculator: React.FC = () => {
 
   useEffect(() => {
     calculateBMI();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [height, weight, unit]);
 
   const handleUnitChange = (newUnit: 'metric' | 'imperial') => {
