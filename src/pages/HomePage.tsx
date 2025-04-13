@@ -58,12 +58,35 @@ const HomePage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Hero Section with Radiating Effect */}
-      <div className="relative text-center mb-20 py-16 rounded-xl border border-gray-800 overflow-hidden">
-        {/* Radial gradient background */}
+      <div 
+        className="relative text-center mb-20 py-16 rounded-xl border border-gray-800 overflow-hidden hero-container"
+        style={{
+          background: 'linear-gradient(to bottom right, #1a0033, #000000)',
+        }}
+      >
+        {/* Gradient background - explicit styles instead of Tailwind classes */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-radial from-primary/30 via-primary/10 to-transparent opacity-70 transform scale-110 hero-gradient-1"></div>
-          <div className="absolute inset-0 bg-gradient-radial from-secondary/20 via-secondary/5 to-transparent opacity-60 transform scale-125 hero-gradient-2" style={{ transformOrigin: 'bottom right' }}></div>
-          <div className="absolute inset-0 bg-black opacity-60"></div>
+          {/* Purple gradient */}
+          <div 
+            className="absolute inset-0 opacity-70 hero-gradient-1"
+            style={{ 
+              background: 'radial-gradient(circle, rgba(75, 0, 130, 0.4) 0%, rgba(75, 0, 130, 0.15) 50%, rgba(0, 0, 0, 0) 100%)',
+              transform: 'scale(1.1)'
+            }}
+          ></div>
+          
+          {/* Blue gradient */}
+          <div 
+            className="absolute inset-0 opacity-60 hero-gradient-2"
+            style={{ 
+              background: 'radial-gradient(circle at bottom right, rgba(0, 0, 139, 0.3) 0%, rgba(0, 0, 139, 0.1) 40%, rgba(0, 0, 0, 0) 70%)',
+              transform: 'scale(1.25)',
+              transformOrigin: 'bottom right'
+            }}
+          ></div>
+          
+          {/* Black overlay for text readability - reduced opacity */}
+          <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
         
         {/* Content */}
