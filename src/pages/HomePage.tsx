@@ -57,65 +57,51 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Hero Section with Radiating Effect - With border, contained radiation */}
+      {/* Hero Section with centered radial glow and grid background */}
       <div 
-        className="relative text-center mb-20 py-24 -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden hero-container rounded-xl border border-purple-900"
+        className="relative text-center mb-20 py-24 -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden hero-container"
         style={{
           marginLeft: 'calc(-50vw + 50%)',
           marginRight: 'calc(-50vw + 50%)',
           width: '100vw',
           position: 'relative',
+          backgroundImage: 'linear-gradient(rgba(30, 0, 50, 0.95), rgba(5, 0, 15, 0.95)), url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'20\' height=\'20\' viewBox=\'0 0 20 20\'%3E%3Cg fill=\'%232d0047\' fill-opacity=\'0.4\'%3E%3Cpath fill-rule=\'evenodd\' d=\'M0 0h20v20H0V0zm1 1h18v18H1V1z\'/%3E%3C/g%3E%3C/svg%3E")',
+          backgroundSize: '20px 20px',
         }}
       >
-        {/* Centered gradient background with flower-like pattern */}
+        {/* Centered radial glow */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Main center radial gradient - primary */}
+          {/* Main center radial gradient - purple */}
           <div 
-            className="absolute inset-0 opacity-80 hero-gradient-1"
+            className="absolute inset-0 hero-radial-glow"
             style={{ 
-              background: 'radial-gradient(circle at center, rgba(180, 20, 255, 0.8) 0%, rgba(120, 0, 255, 0.2) 50%, rgba(0, 0, 0, 0) 70%)',
-              transform: 'scale(1)',
+              background: 'radial-gradient(circle at center, rgba(130, 0, 220, 0.8) 0%, rgba(90, 0, 170, 0.5) 25%, rgba(50, 0, 100, 0.3) 50%, rgba(0, 0, 0, 0) 70%)',
+              opacity: 0.8,
             }}
           ></div>
           
-          {/* Rotated radial gradient overlay for flower effect - blue */}
+          {/* Secondary radial gradient for depth */}
           <div 
-            className="absolute inset-0 opacity-70 hero-gradient-2"
+            className="absolute inset-0 hero-radial-pulse"
             style={{ 
-              background: 'conic-gradient(from 0deg, rgba(0, 100, 255, 0.8) 0%, rgba(0, 30, 200, 0.1) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 30, 200, 0.1) 75%, rgba(0, 100, 255, 0.8) 100%)',
-              clipPath: 'circle(50% at center)',
+              background: 'radial-gradient(circle at center, rgba(180, 60, 255, 0.6) 0%, rgba(90, 0, 190, 0.3) 30%, rgba(0, 0, 0, 0) 60%)',
+              opacity: 0.7,
             }}
           ></div>
-          
-          {/* Secondary radial gradient for depth - purple */}
-          <div 
-            className="absolute inset-0 opacity-60 hero-gradient-3"
-            style={{ 
-              background: 'radial-gradient(circle at center, rgba(80, 0, 180, 0) 0%, rgba(160, 0, 240, 0.5) 55%, rgba(0, 0, 0, 0) 70%)',
-              transform: 'scale(0.9)',
-            }}
-          ></div>
-          
-          {/* Petal-like pattern overlay */}
-          <div 
-            className="absolute inset-0 opacity-50 hero-gradient-4"
-            style={{ 
-              background: 'repeating-conic-gradient(from 0deg, rgba(180, 20, 255, 0) 0deg, rgba(180, 20, 255, 0.7) 15deg, rgba(180, 20, 255, 0) 30deg, rgba(0, 80, 255, 0) 30deg, rgba(0, 80, 255, 0.5) 45deg, rgba(0, 80, 255, 0) 60deg)',
-              clipPath: 'circle(48% at center)',
-            }}
-          ></div>
-          
-          {/* Black overlay for text readability with reduced opacity */}
-          <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
         
         {/* Content */}
         <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white text-shadow-glow">
-            Free Online Conversion Tools & Calculators
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            Convert, Calculate, Refer
           </h1>
+          <h2 className="text-2xl md:text-3xl font-medium mb-6 text-purple-300">
+            100% Free
+          </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Your one-stop platform for unit conversions, document transformations, and specialized calculators. Always free, no signup required.
+            Your one-stop solution for all document conversions, 
+            calculations, and industrial references. No hidden fees, no
+            registration required.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
