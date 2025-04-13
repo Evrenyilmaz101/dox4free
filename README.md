@@ -1,46 +1,106 @@
-# Getting Started with Create React App
+# Dox4Free
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A 100% free online platform for unit conversions, document conversions, and calculators.
 
-## Available Scripts
+🌐 **Website**: [dox4free.com](https://dox4free.com)
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+Dox4Free offers a comprehensive suite of free online tools for various conversions and calculations. The platform is designed to be user-friendly, efficient, and completely free to use without requiring sign-ups or subscriptions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Key Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Unit Converters**: Convert between different units of measurement
+- **Document Conversion Tools**: Transform, merge, and manipulate documents and images
+- **Smart Calculators**: Various calculators for health, finance, science, and more
+- **Engineering Specifications**: Access material properties and component references
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js (v16 or higher)
+- npm (v8 or higher)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/dox4free.git
+   cd dox4free
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-### `npm run eject`
+3. Start the development server:
+   ```
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. Open your browser and navigate to `http://localhost:3000`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+dox4free/
+├── public/               # Static files
+├── src/                  # Source code
+│   ├── components/       # Reusable UI components
+│   │   ├── layout/       # Layout components (header, footer, etc.)
+│   │   ├── unit-converters/  # Unit converter components
+│   │   ├── document-conversion/ # Document conversion tools
+│   │   ├── calculators/  # Calculator components
+│   │   └── engineering-specs/ # Engineering reference components
+│   ├── pages/            # Page components
+│   ├── App.tsx           # Main app component
+│   └── index.tsx         # Application entry point
+└── package.json          # Project dependencies and scripts
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Built With
 
-## Learn More
+- [React](https://reactjs.org/) - Frontend library
+- [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [React Router](https://reactrouter.com/) - Routing library for React
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Development
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Code Style and Guidelines
+
+- Use TypeScript for type safety
+- Follow component-based architecture
+- Implement responsive design for all components
+- Maintain dark mode aesthetic with deep purple and dark blue gradients
+- Ensure cross-browser compatibility
+
+### Available Scripts
+
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run eject` - Ejects the Create React App configuration
+
+## Deployment
+
+The website is deployed to Netlify with the following process:
+
+1. Push changes to GitHub
+2. Netlify automatically builds and deploys the site
+3. The site is served from the custom domain [dox4free.com](https://dox4free.com)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Icons provided by [Heroicons](https://heroicons.com/)
+- UI components powered by [Headless UI](https://headlessui.dev/)
