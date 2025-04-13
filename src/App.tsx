@@ -4,7 +4,6 @@ import './App.css';
 
 // Layout components
 import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -18,7 +17,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       <Header />
-      <main className="flex-1 p-4 mx-auto w-full max-w-7xl">
+      <main className="flex-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/unit-converters/*" element={<UnitConverterPage />} />
@@ -28,7 +27,6 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
-      <Footer />
     </div>
   );
 }
