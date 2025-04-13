@@ -68,37 +68,37 @@ const HomePage: React.FC = () => {
       >
         {/* Gradient background with stronger colors */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Purple gradient - larger, more intense */}
+          {/* Purple gradient - brighter, more intense */}
           <div 
-            className="absolute inset-0 opacity-80 hero-gradient-1"
+            className="absolute inset-0 opacity-90 hero-gradient-1"
             style={{ 
-              background: 'radial-gradient(circle at center, rgba(120, 0, 200, 0.6) 0%, rgba(75, 0, 130, 0.2) 60%, rgba(0, 0, 0, 0) 100%)',
+              background: 'radial-gradient(circle at center, rgba(170, 0, 255, 0.7) 0%, rgba(120, 0, 255, 0.35) 45%, rgba(0, 0, 0, 0) 90%)',
               transform: 'scale(1.2)'
             }}
           ></div>
           
-          {/* Blue gradient - larger, more visible */}
+          {/* Blue gradient - brighter, more vibrant */}
           <div 
-            className="absolute inset-0 opacity-70 hero-gradient-2"
+            className="absolute inset-0 opacity-80 hero-gradient-2"
             style={{ 
-              background: 'radial-gradient(circle at bottom right, rgba(0, 20, 200, 0.5) 0%, rgba(0, 0, 139, 0.2) 50%, rgba(0, 0, 0, 0) 80%)',
+              background: 'radial-gradient(circle at bottom right, rgba(0, 80, 255, 0.7) 0%, rgba(0, 30, 200, 0.35) 45%, rgba(0, 0, 0, 0) 85%)',
               transform: 'scale(1.5)',
               transformOrigin: 'bottom right'
             }}
           ></div>
           
-          {/* Additional purple gradient from left */}
+          {/* Additional purple gradient from left - brighter */}
           <div 
-            className="absolute inset-0 opacity-60 hero-gradient-3"
+            className="absolute inset-0 opacity-80 hero-gradient-3"
             style={{ 
-              background: 'radial-gradient(circle at bottom left, rgba(160, 32, 240, 0.4) 0%, rgba(120, 0, 200, 0.1) 50%, rgba(0, 0, 0, 0) 80%)',
+              background: 'radial-gradient(circle at bottom left, rgba(200, 70, 255, 0.7) 0%, rgba(160, 0, 240, 0.35) 40%, rgba(0, 0, 0, 0) 80%)',
               transform: 'scale(1.5)',
               transformOrigin: 'bottom left'
             }}
           ></div>
           
           {/* Black overlay for text readability - reduced opacity further */}
-          <div className="absolute inset-0 bg-black opacity-40"></div>
+          <div className="absolute inset-0 bg-black opacity-30"></div>
         </div>
         
         {/* Content */}
