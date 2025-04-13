@@ -76,7 +76,7 @@ const HomePage: React.FC = () => {
           <div 
             className="absolute inset-0 sun-pulse-1"
             style={{ 
-              background: 'radial-gradient(circle at center, rgba(180, 40, 240, 0.8) 0%, rgba(90, 0, 170, 0.5) 30%, rgba(20, 0, 40, 0.2) 50%, rgba(0, 0, 0, 0) 70%)',
+              background: 'radial-gradient(circle at center, rgba(200, 60, 255, 0.9) 0%, rgba(120, 0, 200, 0.6) 25%, rgba(40, 0, 80, 0.3) 45%, rgba(0, 0, 0, 0) 70%)',
             }}
           ></div>
           
@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
           <div 
             className="absolute inset-0 sun-pulse-2"
             style={{ 
-              background: 'radial-gradient(circle at center, rgba(80, 100, 255, 0.5) 0%, rgba(40, 50, 200, 0.3) 30%, rgba(0, 0, 0, 0) 60%)',
+              background: 'radial-gradient(circle at center, rgba(100, 120, 255, 0.7) 0%, rgba(50, 70, 220, 0.4) 25%, rgba(0, 0, 0, 0) 60%)',
             }}
           ></div>
           
@@ -92,15 +92,7 @@ const HomePage: React.FC = () => {
           <div 
             className="absolute inset-0 sun-pulse-3"
             style={{ 
-              background: 'radial-gradient(circle at center, rgba(255, 0, 150, 0.5) 0%, rgba(200, 0, 120, 0.2) 20%, rgba(0, 0, 0, 0) 50%)',
-            }}
-          ></div>
-          
-          {/* Subtle rays emanating outward */}
-          <div 
-            className="absolute inset-0 sun-rays"
-            style={{ 
-              background: 'conic-gradient(from 0deg, rgba(180, 40, 240, 0) 0deg, rgba(180, 40, 240, 0.2) 10deg, rgba(180, 40, 240, 0) 20deg, rgba(80, 100, 255, 0) 20deg, rgba(80, 100, 255, 0.2) 30deg, rgba(80, 100, 255, 0) 40deg, rgba(255, 0, 150, 0) 40deg, rgba(255, 0, 150, 0.2) 50deg, rgba(255, 0, 150, 0) 60deg, rgba(180, 40, 240, 0) 60deg, rgba(180, 40, 240, 0.2) 70deg, rgba(180, 40, 240, 0) 80deg, rgba(80, 100, 255, 0) 80deg, rgba(80, 100, 255, 0.2) 90deg, rgba(80, 100, 255, 0) 100deg)',
+              background: 'radial-gradient(circle at center, rgba(255, 40, 150, 0.7) 0%, rgba(220, 0, 120, 0.3) 20%, rgba(0, 0, 0, 0) 50%)',
             }}
           ></div>
         </div>

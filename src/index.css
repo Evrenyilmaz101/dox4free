@@ -38,15 +38,6 @@ code {
   }
 }
 
-@keyframes ray-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes alternate-pulse {
   0% {
     opacity: 0.5;
@@ -72,11 +63,6 @@ code {
 
 .sun-pulse-3 {
   animation: sun-pulse 10s ease-in-out infinite 2s;
-}
-
-.sun-rays {
-  animation: ray-rotate 60s linear infinite;
-  opacity: 0.7;
 }
 
 .hero-container {
