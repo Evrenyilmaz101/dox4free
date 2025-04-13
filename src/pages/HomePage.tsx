@@ -57,61 +57,56 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Hero Section with Radiating Effect - Full width, no border */}
+      {/* Hero Section with Radiating Effect - With border, contained radiation */}
       <div 
-        className="relative text-center mb-20 pt-32 pb-32 -mx-4 sm:-mx-6 lg:-mx-8 overflow-visible hero-container"
+        className="relative text-center mb-20 py-24 -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden hero-container rounded-xl border border-purple-900"
         style={{
           marginLeft: 'calc(-50vw + 50%)',
           marginRight: 'calc(-50vw + 50%)',
           width: '100vw',
           position: 'relative',
-          marginTop: '-80px', // Negative margin to extend to the very top
         }}
       >
-        {/* Extended gradient background with fade-out effect */}
-        <div className="absolute inset-0 overflow-visible" style={{ height: '150%', top: '-50px' }}>
-          {/* Main center radial gradient */}
+        {/* Centered gradient background with flower-like pattern */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Main center radial gradient - primary */}
           <div 
-            className="absolute inset-0 opacity-90 hero-gradient-1"
+            className="absolute inset-0 opacity-80 hero-gradient-1"
             style={{ 
-              background: 'radial-gradient(circle at center, rgba(180, 20, 255, 0.8) 0%, rgba(120, 0, 255, 0.4) 30%, rgba(0, 0, 0, 0) 70%)',
-              transform: 'scale(1.5)',
-              height: '150%',
+              background: 'radial-gradient(circle at center, rgba(180, 20, 255, 0.8) 0%, rgba(120, 0, 255, 0.2) 50%, rgba(0, 0, 0, 0) 70%)',
+              transform: 'scale(1)',
             }}
           ></div>
           
-          {/* Second radial gradient for depth */}
+          {/* Rotated radial gradient overlay for flower effect - blue */}
           <div 
-            className="absolute inset-0 opacity-80 hero-gradient-2"
+            className="absolute inset-0 opacity-70 hero-gradient-2"
             style={{ 
-              background: 'radial-gradient(circle at center, rgba(0, 100, 255, 0.7) 0%, rgba(0, 30, 200, 0.3) 35%, rgba(0, 0, 0, 0) 75%)',
-              transform: 'scale(1.8)',
-              height: '150%',
+              background: 'conic-gradient(from 0deg, rgba(0, 100, 255, 0.8) 0%, rgba(0, 30, 200, 0.1) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 30, 200, 0.1) 75%, rgba(0, 100, 255, 0.8) 100%)',
+              clipPath: 'circle(50% at center)',
             }}
           ></div>
           
-          {/* Additional radial gradient for a third layer */}
+          {/* Secondary radial gradient for depth - purple */}
           <div 
-            className="absolute inset-0 opacity-70 hero-gradient-3"
+            className="absolute inset-0 opacity-60 hero-gradient-3"
             style={{ 
-              background: 'radial-gradient(circle at center, rgba(220, 100, 255, 0.6) 0%, rgba(160, 0, 240, 0.2) 40%, rgba(0, 0, 0, 0) 80%)',
-              transform: 'scale(2)',
-              height: '150%',
+              background: 'radial-gradient(circle at center, rgba(80, 0, 180, 0) 0%, rgba(160, 0, 240, 0.5) 55%, rgba(0, 0, 0, 0) 70%)',
+              transform: 'scale(0.9)',
             }}
           ></div>
           
-          {/* Gradual fade to black */}
+          {/* Petal-like pattern overlay */}
           <div 
-            className="absolute inset-x-0 bottom-0 opacity-95"
+            className="absolute inset-0 opacity-50 hero-gradient-4"
             style={{ 
-              background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)',
-              height: '50%',
-              top: '75%',
+              background: 'repeating-conic-gradient(from 0deg, rgba(180, 20, 255, 0) 0deg, rgba(180, 20, 255, 0.7) 15deg, rgba(180, 20, 255, 0) 30deg, rgba(0, 80, 255, 0) 30deg, rgba(0, 80, 255, 0.5) 45deg, rgba(0, 80, 255, 0) 60deg)',
+              clipPath: 'circle(48% at center)',
             }}
           ></div>
           
           {/* Black overlay for text readability with reduced opacity */}
-          <div className="absolute inset-0 bg-black opacity-15" style={{ height: '150%' }}></div>
+          <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
         
         {/* Content */}
