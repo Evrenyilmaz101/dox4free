@@ -11,24 +11,18 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <div className="relative flex items-center">
-                <div className="mr-2 bg-gradient-to-br from-purple-400 to-indigo-500 rounded p-1.5 shadow-lg transform rotate-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                <div className="mr-3 bg-indigo-600 rounded-lg p-1.5 shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
                   </svg>
                 </div>
-                <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-indigo-300 font-['Montserrat',_sans-serif] tracking-tight logo-text">
-                  <span className="relative inline-block">
-                    D<span className="text-white opacity-90 text-sm absolute -top-1 right-0 transform translate-x-1/2 logo-dot">•</span>
+                <div className="flex flex-col">
+                  <span className="text-2xl font-extrabold text-white leading-tight" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3)' }}>
+                    Dox<span className="text-indigo-300">4</span>Free
                   </span>
-                  <span className="relative">ox</span>
-                  <span className="relative inline-block">
-                    4<span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 logo-underline"></span>
-                  </span>
-                  <span className="relative">
-                    Free
-                  </span>
-                </span>
-                <span className="ml-1 text-xs font-bold bg-gradient-to-r from-purple-600 to-pink-600 px-2 py-0.5 rounded-md text-white shadow-sm">Beta</span>
+                  <span className="ml-auto -mt-1 text-xs font-semibold bg-purple-600 px-1.5 py-0.5 rounded text-white shadow-sm">Beta</span>
+                </div>
               </div>
             </Link>
           </div>
