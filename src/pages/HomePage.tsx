@@ -209,7 +209,7 @@ const HomePage: React.FC = () => {
 
       {/* Why Choose Dox4Free Section */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
-        <div className="bg-gray-900 bg-opacity-95 rounded-xl p-8 border border-gray-800 shadow-2xl">
+        <div className="bg-gray-900 bg-opacity-98 rounded-xl p-8 border-2 border-purple-800 shadow-2xl" style={{ backgroundColor: 'rgba(17, 24, 39, 0.98)', boxShadow: '0 25px 50px -12px rgba(76, 29, 149, 0.25)' }}>
           <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center text-white font-['Montserrat',_sans-serif]">
             Why Choose Dox4Free
           </h2>
