@@ -11,17 +11,17 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <div className="relative flex items-center">
-                {/* Document icon positioned behind the text */}
-                <div className="absolute left-0 z-0 bg-indigo-600 rounded-lg p-2 shadow-lg opacity-90">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-9 w-9 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                {/* Document icon positioned behind the text - no background, rotated slightly */}
+                <div className="absolute z-0 left-6 transform -rotate-6" style={{ opacity: 0.7 }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                     <polyline points="14 2 14 8 20 8" />
                   </svg>
                 </div>
                 
-                {/* Text overlaid on the icon with left padding */}
-                <div className="flex flex-col z-10 pl-10">
-                  <span className="text-3xl font-extrabold text-white leading-tight tracking-wide" style={{ textShadow: '0 0 12px rgba(255, 255, 255, 0.5)' }}>
+                {/* Text overlaid on the icon with padding */}
+                <div className="flex flex-col z-10 pl-2">
+                  <span className="text-4xl font-extrabold text-white leading-tight tracking-wide" style={{ textShadow: '0 0 12px rgba(255, 255, 255, 0.5)' }}>
                     Dox<span className="text-indigo-300">4</span>Free
                   </span>
                   <span className="ml-auto -mt-1 text-xs font-semibold bg-purple-500 px-2 py-0.5 rounded text-white shadow-sm">Beta</span>
