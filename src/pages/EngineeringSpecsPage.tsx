@@ -135,8 +135,10 @@ const EngineeringSpecsPage: React.FC = () => {
       <div className="relative z-10 container mx-auto px-4 py-8">
         {isRootPath ? (
           <>
-            <div className="text-center mb-12 pt-8">
-              <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600">Engineering Specifications</h1>
+            <div className="text-center mb-12 pt-12">
+              <h1 className="text-5xl font-bold mb-8 leading-relaxed bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600">
+                Engineering Specifications
+              </h1>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Access comprehensive engineering data, material properties, and 
                 component specifications for all your technical and design needs. Our database is 
