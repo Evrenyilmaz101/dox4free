@@ -135,8 +135,8 @@ const EngineeringSpecsPage: React.FC = () => {
       <div className="relative z-10 container mx-auto px-4 py-8">
         {isRootPath ? (
           <>
-            <div className="text-center mb-12">
-              <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600">Engineering Specifications</h1>
+            <div className="text-center mb-12 pt-8">
+              <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600">Engineering Specifications</h1>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Access comprehensive engineering data, material properties, and 
                 component specifications for all your technical and design needs. Our database is 
@@ -160,10 +160,7 @@ const EngineeringSpecsPage: React.FC = () => {
                     className="group flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition duration-300 shadow-lg hover:shadow-purple-500/20"
                   >
                     <div className="p-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-indigo-700 rounded-full flex items-center justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                        {spec.icon}
-                      </div>
-                      <h2 className="text-xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-300">{spec.name}</h2>
+                      <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{spec.name}</h2>
                       <p className="text-gray-300 text-sm">{spec.description}</p>
                     </div>
                   </Link>
@@ -187,10 +184,7 @@ const EngineeringSpecsPage: React.FC = () => {
                     className="group flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition duration-300 shadow-lg hover:shadow-purple-500/20"
                   >
                     <div className="p-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-indigo-700 rounded-full flex items-center justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                        {spec.icon}
-                      </div>
-                      <h2 className="text-xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-300">{spec.name}</h2>
+                      <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{spec.name}</h2>
                       <p className="text-gray-300 text-sm">{spec.description}</p>
                     </div>
                   </Link>
@@ -214,10 +208,7 @@ const EngineeringSpecsPage: React.FC = () => {
                     className="group flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition duration-300 shadow-lg hover:shadow-purple-500/20"
                   >
                     <div className="p-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-indigo-700 rounded-full flex items-center justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                        {spec.icon}
-                      </div>
-                      <h2 className="text-xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-300">{spec.name}</h2>
+                      <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{spec.name}</h2>
                       <p className="text-gray-300 text-sm">{spec.description}</p>
                     </div>
                   </Link>
