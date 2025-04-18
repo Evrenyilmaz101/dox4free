@@ -129,12 +129,22 @@ const CalculatorsPage: React.FC = () => {
         }} 
       />
       
+      {/* Glow Overlay */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-96 pointer-events-none z-0 opacity-30" 
+        style={{ 
+          background: 'radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.3), rgba(0, 0, 0, 0) 70%)'
+        }} 
+      />
+      
       <div className="relative z-10 container mx-auto px-4 py-8">
         {isRootPath ? (
           <>
-            <div className="text-center mb-10">
-              <h1 className="text-4xl font-bold mb-4">Calculators</h1>
-              <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <div className="text-center mb-12 pt-12">
+              <h1 className="text-5xl font-bold mb-8 leading-relaxed bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600">
+                Calculators
+              </h1>
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Make complex calculations simple with our powerful online calculators.
                 From health metrics to financial planning, we have the tools you need.
               </p>
@@ -144,7 +154,7 @@ const CalculatorsPage: React.FC = () => {
             <div className="mb-16">
               <h2 className="text-2xl font-bold mb-8 pb-2 text-center relative">
                 Health Calculators
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-purple-600"></span>
+                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full"></span>
               </h2>
               <p className="text-center text-gray-300 mb-8">Tools to monitor and improve your health and fitness</p>
               
@@ -153,13 +163,10 @@ const CalculatorsPage: React.FC = () => {
                   <Link
                     key={index}
                     to={calculator.path}
-                    className="flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-700 transition duration-300"
+                    className="group flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition duration-300 shadow-lg hover:shadow-purple-500/20"
                   >
                     <div className="p-6">
-                      <div className="w-14 h-14 bg-purple-700 rounded-full flex items-center justify-center mb-4">
-                        {calculator.icon}
-                      </div>
-                      <h2 className="text-xl font-bold mb-2 text-white">{calculator.name}</h2>
+                      <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{calculator.name}</h2>
                       <p className="text-gray-300 text-sm">{calculator.description}</p>
                     </div>
                   </Link>
@@ -171,7 +178,7 @@ const CalculatorsPage: React.FC = () => {
             <div className="mb-16">
               <h2 className="text-2xl font-bold mb-8 pb-2 text-center relative">
                 Finance Calculators
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-purple-600"></span>
+                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full"></span>
               </h2>
               <p className="text-center text-gray-300 mb-8">Plan your finances and make informed money decisions</p>
               
@@ -180,13 +187,10 @@ const CalculatorsPage: React.FC = () => {
                   <Link
                     key={index}
                     to={calculator.path}
-                    className="flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-700 transition duration-300"
+                    className="group flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition duration-300 shadow-lg hover:shadow-purple-500/20"
                   >
                     <div className="p-6">
-                      <div className="w-14 h-14 bg-purple-700 rounded-full flex items-center justify-center mb-4">
-                        {calculator.icon}
-                      </div>
-                      <h2 className="text-xl font-bold mb-2 text-white">{calculator.name}</h2>
+                      <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{calculator.name}</h2>
                       <p className="text-gray-300 text-sm">{calculator.description}</p>
                     </div>
                   </Link>
@@ -198,7 +202,7 @@ const CalculatorsPage: React.FC = () => {
             <div className="mb-16">
               <h2 className="text-2xl font-bold mb-8 pb-2 text-center relative">
                 Math Calculators
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-purple-600"></span>
+                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full"></span>
               </h2>
               <p className="text-center text-gray-300 mb-8">Advanced tools for solving mathematical problems</p>
               
@@ -207,13 +211,10 @@ const CalculatorsPage: React.FC = () => {
                   <Link
                     key={index}
                     to={calculator.path}
-                    className="flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-700 transition duration-300"
+                    className="group flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition duration-300 shadow-lg hover:shadow-purple-500/20"
                   >
                     <div className="p-6">
-                      <div className="w-14 h-14 bg-purple-700 rounded-full flex items-center justify-center mb-4">
-                        {calculator.icon}
-                      </div>
-                      <h2 className="text-xl font-bold mb-2 text-white">{calculator.name}</h2>
+                      <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{calculator.name}</h2>
                       <p className="text-gray-300 text-sm">{calculator.description}</p>
                     </div>
                   </Link>

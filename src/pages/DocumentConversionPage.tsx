@@ -126,12 +126,22 @@ const DocumentConversionPage: React.FC = () => {
         }} 
       />
       
+      {/* Glow Overlay */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-96 pointer-events-none z-0 opacity-30" 
+        style={{ 
+          background: 'radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.3), rgba(0, 0, 0, 0) 70%)'
+        }} 
+      />
+      
       <div className="relative z-10 container mx-auto px-4 py-8">
         {isRootPath ? (
           <>
-            <div className="text-center mb-10">
-              <h1 className="text-4xl font-bold mb-4">Document Conversion Tools</h1>
-              <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <div className="text-center mb-12 pt-12">
+              <h1 className="text-5xl font-bold mb-8 leading-relaxed bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600">
+                Document Conversion Tools
+              </h1>
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Convert, modify, and manipulate your documents with our powerful online tools.
                 From PDF conversions to image editing, we have everything you need for document management.
               </p>
@@ -141,7 +151,7 @@ const DocumentConversionPage: React.FC = () => {
             <div className="mb-16">
               <h2 className="text-2xl font-bold mb-8 pb-2 text-center relative">
                 PDF Tools
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-purple-600"></span>
+                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full"></span>
               </h2>
               <p className="text-center text-gray-300 mb-8">Powerful tools for PDF manipulation and conversion</p>
               
@@ -150,13 +160,10 @@ const DocumentConversionPage: React.FC = () => {
                   <Link
                     key={index}
                     to={tool.path}
-                    className="flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-700 transition duration-300"
+                    className="group flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition duration-300 shadow-lg hover:shadow-purple-500/20"
                   >
                     <div className="p-6">
-                      <div className="w-14 h-14 bg-purple-700 rounded-full flex items-center justify-center mb-4">
-                        {tool.icon}
-                      </div>
-                      <h2 className="text-xl font-bold mb-2 text-white">{tool.name}</h2>
+                      <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{tool.name}</h2>
                       <p className="text-gray-300 text-sm">{tool.description}</p>
                     </div>
                   </Link>
@@ -168,7 +175,7 @@ const DocumentConversionPage: React.FC = () => {
             <div className="mb-16">
               <h2 className="text-2xl font-bold mb-8 pb-2 text-center relative">
                 Image Tools
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-purple-600"></span>
+                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full"></span>
               </h2>
               <p className="text-center text-gray-300 mb-8">Resize, convert, and optimize your images</p>
               
@@ -177,13 +184,10 @@ const DocumentConversionPage: React.FC = () => {
                   <Link
                     key={index}
                     to={tool.path}
-                    className="flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-700 transition duration-300"
+                    className="group flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition duration-300 shadow-lg hover:shadow-purple-500/20"
                   >
                     <div className="p-6">
-                      <div className="w-14 h-14 bg-purple-700 rounded-full flex items-center justify-center mb-4">
-                        {tool.icon}
-                      </div>
-                      <h2 className="text-xl font-bold mb-2 text-white">{tool.name}</h2>
+                      <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{tool.name}</h2>
                       <p className="text-gray-300 text-sm">{tool.description}</p>
                     </div>
                   </Link>
@@ -195,7 +199,7 @@ const DocumentConversionPage: React.FC = () => {
             <div className="mb-16">
               <h2 className="text-2xl font-bold mb-8 pb-2 text-center relative">
                 Office Document Tools
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-purple-600"></span>
+                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full"></span>
               </h2>
               <p className="text-center text-gray-300 mb-8">Convert and transform office document formats</p>
               
@@ -204,13 +208,10 @@ const DocumentConversionPage: React.FC = () => {
                   <Link
                     key={index}
                     to={tool.path}
-                    className="flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-700 transition duration-300"
+                    className="group flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition duration-300 shadow-lg hover:shadow-purple-500/20"
                   >
                     <div className="p-6">
-                      <div className="w-14 h-14 bg-purple-700 rounded-full flex items-center justify-center mb-4">
-                        {tool.icon}
-                      </div>
-                      <h2 className="text-xl font-bold mb-2 text-white">{tool.name}</h2>
+                      <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{tool.name}</h2>
                       <p className="text-gray-300 text-sm">{tool.description}</p>
                     </div>
                   </Link>
