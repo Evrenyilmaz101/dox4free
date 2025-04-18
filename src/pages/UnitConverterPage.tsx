@@ -125,7 +125,8 @@ const UnitConverterPage: React.FC = () => {
         style={{ 
           backgroundImage: 'linear-gradient(#999999 1px, transparent 1px), linear-gradient(90deg, #999999 1px, transparent 1px)',
           backgroundSize: '20px 20px',
-          opacity: 0.15
+          opacity: 0.15,
+          display: isRootPath ? 'block' : 'none' // Only show grid on the main page, not on individual tools
         }} 
       />
       

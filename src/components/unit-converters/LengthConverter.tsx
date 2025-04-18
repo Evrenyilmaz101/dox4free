@@ -71,16 +71,16 @@ const LengthConverter: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
+    <div className="p-6 shadow-lg rounded-lg" style={{ backgroundColor: 'black' }}>
       <h2 className="text-2xl font-bold mb-6">Length Converter</h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <label htmlFor="fromValue" className="block mb-2 text-sm font-medium">Value</label>
           <input
             id="fromValue"
             type="text"
-            className="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-primary focus:border-primary"
+            className="w-full p-3 bg-gray-900 border border-gray-700 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Enter a number"
@@ -89,7 +89,7 @@ const LengthConverter: React.FC = () => {
           <label htmlFor="fromUnit" className="block mt-4 mb-2 text-sm font-medium">From</label>
           <select
             id="fromUnit"
-            className="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-primary focus:border-primary"
+            className="w-full p-3 bg-gray-900 border border-gray-700 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
             value={fromUnit}
             onChange={(e) => setFromUnit(e.target.value)}
           >
@@ -105,11 +105,11 @@ const LengthConverter: React.FC = () => {
           <div className="flex items-center justify-center h-10 mb-4 md:mb-0 md:mt-8">
             <button
               onClick={handleSwap}
-              className="bg-primary hover:bg-primary-dark text-white p-2 rounded-full transition duration-300"
+              className="bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-full transition duration-300"
               aria-label="Swap units"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
               </svg>
             </button>
           </div>
@@ -117,7 +117,7 @@ const LengthConverter: React.FC = () => {
           <label htmlFor="toUnit" className="block mb-2 text-sm font-medium">To</label>
           <select
             id="toUnit"
-            className="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-primary focus:border-primary"
+            className="w-full p-3 bg-gray-900 border border-gray-700 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
             value={toUnit}
             onChange={(e) => setToUnit(e.target.value)}
           >
@@ -136,7 +136,7 @@ const LengthConverter: React.FC = () => {
         </div>
       )}
       
-      <div className="mt-8 p-4 bg-gray-700 rounded-lg">
+      <div className="mt-8 p-6 bg-gray-900 rounded-lg">
         <div className="flex justify-between items-center">
           <div>
             <span className="text-sm text-gray-400">Result:</span>
@@ -155,16 +155,20 @@ const LengthConverter: React.FC = () => {
         </div>
       </div>
       
-      <div className="mt-8">
-        <h3 className="text-lg font-semibold mb-4">Common Conversions</h3>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <li>1 meter = 3.28084 feet</li>
-          <li>1 foot = 0.3048 meters</li>
-          <li>1 inch = 2.54 centimeters</li>
-          <li>1 mile = 1.60934 kilometers</li>
-          <li>1 kilometer = 0.621371 miles</li>
-          <li>1 yard = 0.9144 meters</li>
-        </ul>
+      <div className="mt-10">
+        <h3 className="text-xl font-semibold mb-4">Common Conversions</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <p>1 meter = 3.28084 feet</p>
+            <p>1 inch = 2.54 centimeters</p>
+            <p>1 kilometer = 0.621371 miles</p>
+          </div>
+          <div>
+            <p>1 foot = 0.3048 meters</p>
+            <p>1 mile = 1.60934 kilometers</p>
+            <p>1 yard = 0.9144 meters</p>
+          </div>
+        </div>
       </div>
     </div>
   );

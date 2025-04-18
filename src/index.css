@@ -15,13 +15,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0c0c14;
+  background-color: black;
   color: white;
-  background-image: 
-    linear-gradient(#999999 1px, transparent 1px),
-    linear-gradient(90deg, #999999 1px, transparent 1px);
-  background-size: 20px 20px;
-  background-attachment: fixed;
 }
 
 code {
