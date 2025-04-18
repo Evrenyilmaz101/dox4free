@@ -132,28 +132,6 @@ const UnitConverterPage: React.FC = () => {
     }
   ];
 
-  // Get the active converter component based on the URL parameter
-  const getActiveConverter = () => {
-    switch (unit) {
-      case 'length':
-        return <LengthConverter />;
-      case 'weight':
-        return <WeightConverter />;
-      case 'temperature':
-        return <TemperatureConverter />;
-      case 'time':
-        return <TimeConverter />;
-      case 'area':
-        return <AreaConverter />;
-      case 'volume':
-        return <VolumeConverter />;
-      case 'mass':
-        return <MassConverter />;
-      default:
-        return null;
-    }
-  };
-
   return (
     <div className="min-h-screen relative">
       {/* Grid Background Overlay */}
