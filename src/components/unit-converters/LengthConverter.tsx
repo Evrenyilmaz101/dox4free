@@ -71,25 +71,29 @@ const LengthConverter: React.FC = () => {
   };
 
   return (
-    <div className="p-6 shadow-lg rounded-lg" style={{ backgroundColor: 'black' }}>
-      <h2 className="text-2xl font-bold mb-6">Length Converter</h2>
+    <div className="p-8 md:p-12 max-w-5xl mx-auto" style={{ backgroundColor: 'black' }}>
+      <h2 className="text-2xl font-bold mb-8">Length Converter</h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div>
-          <label htmlFor="fromValue" className="block mb-2 text-sm font-medium">Value</label>
-          <input
-            id="fromValue"
-            type="text"
-            className="w-full p-3 bg-gray-900 border border-gray-700 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Enter a number"
-          />
-          
-          <label htmlFor="fromUnit" className="block mt-4 mb-2 text-sm font-medium">From</label>
+      {/* Value section */}
+      <div className="mb-6">
+        <label htmlFor="fromValue" className="block mb-2 text-sm font-medium">Value</label>
+        <input
+          id="fromValue"
+          type="text"
+          className="w-full p-4 bg-gray-900 border border-gray-800 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Enter a number"
+        />
+      </div>
+      
+      {/* From/To section with swap button */}
+      <div className="flex flex-col md:flex-row gap-6 mb-6 relative">
+        <div className="flex-1">
+          <label htmlFor="fromUnit" className="block mb-2 text-sm font-medium">From</label>
           <select
             id="fromUnit"
-            className="w-full p-3 bg-gray-900 border border-gray-700 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
+            className="w-full p-4 bg-gray-900 border border-gray-800 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
             value={fromUnit}
             onChange={(e) => setFromUnit(e.target.value)}
           >
@@ -101,23 +105,24 @@ const LengthConverter: React.FC = () => {
           </select>
         </div>
         
-        <div className="flex flex-col">
-          <div className="flex items-center justify-center h-10 mb-4 md:mb-0 md:mt-8">
-            <button
-              onClick={handleSwap}
-              className="bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-full transition duration-300"
-              aria-label="Swap units"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
-              </svg>
-            </button>
-          </div>
-          
+        {/* Swap button - absolute positioned in the middle on desktop */}
+        <div className="flex justify-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 my-2 md:my-0">
+          <button
+            onClick={handleSwap}
+            className="bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full transition duration-300"
+            aria-label="Swap units"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+            </svg>
+          </button>
+        </div>
+        
+        <div className="flex-1">
           <label htmlFor="toUnit" className="block mb-2 text-sm font-medium">To</label>
           <select
             id="toUnit"
-            className="w-full p-3 bg-gray-900 border border-gray-700 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
+            className="w-full p-4 bg-gray-900 border border-gray-800 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
             value={toUnit}
             onChange={(e) => setToUnit(e.target.value)}
           >
@@ -136,15 +141,16 @@ const LengthConverter: React.FC = () => {
         </div>
       )}
       
-      <div className="mt-8 p-6 bg-gray-900 rounded-lg">
-        <div className="flex justify-between items-center">
+      {/* Result section */}
+      <div className="mt-6 p-6 bg-gray-900 rounded-lg">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           <div>
             <span className="text-sm text-gray-400">Result:</span>
             <div className="text-2xl font-semibold mt-1">
               {result} {toUnit}{result !== '1' && 's'}
             </div>
           </div>
-          <div className="text-right">
+          <div className="text-left md:text-right mt-4 md:mt-0">
             <span className="text-sm text-gray-400">Formula:</span>
             <div className="mt-1">
               {fromUnit !== toUnit && (
@@ -155,6 +161,7 @@ const LengthConverter: React.FC = () => {
         </div>
       </div>
       
+      {/* Common Conversions section */}
       <div className="mt-10">
         <h3 className="text-xl font-semibold mb-4">Common Conversions</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
