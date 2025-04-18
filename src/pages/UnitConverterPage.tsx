@@ -242,7 +242,6 @@ const UnitConverterPage: React.FC = () => {
         ) : (
           <Routes>
             <Route path="/length" element={<LengthConverter />} />
-            <Route path="/weight" element={<WeightConverter />} />
             <Route path="/temperature" element={<TemperatureConverter />} />
             <Route path="/time" element={<TimeConverter />} />
             <Route path="/area" element={<AreaConverter />} />
