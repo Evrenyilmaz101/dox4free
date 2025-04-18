@@ -4,7 +4,7 @@
   "private": true,
   "description": "A free online platform for unit conversions, document conversions, and calculators",
   "author": "Dox4Free Team",
-  "homepage": "/",
+  "homepage": "https://dox4free.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/dox4free/dox4free.git"

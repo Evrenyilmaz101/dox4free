@@ -6,13 +6,10 @@ import LengthConverter from '../components/unit-converters/LengthConverter';
 import WeightConverter from '../components/unit-converters/WeightConverter';
 import TemperatureConverter from '../components/unit-converters/TemperatureConverter';
 import TimeConverter from '../components/unit-converters/TimeConverter';
-import AreaConverter from '../components/unit-converters/AreaConverter';
-import VolumeConverter from '../components/unit-converters/VolumeConverter';
 
-// Placeholder components for the remaining Physics & Engineering converters
-const EnergyConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Energy Converter Coming Soon</div>;
-const SpeedConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Speed Converter Coming Soon</div>;
-const PressureConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Pressure Converter Coming Soon</div>;
+// Placeholder components for now
+const AreaConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Area Converter Coming Soon</div>;
+const VolumeConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Volume Converter Coming Soon</div>;
 
 const UnitConverterPage: React.FC = () => {
   const location = useLocation();
@@ -235,9 +232,9 @@ const UnitConverterPage: React.FC = () => {
             <Route path="/time" element={<TimeConverter />} />
             <Route path="/area" element={<AreaConverter />} />
             <Route path="/volume" element={<VolumeConverter />} />
-            <Route path="/energy" element={<EnergyConverter />} />
-            <Route path="/speed" element={<SpeedConverter />} />
-            <Route path="/pressure" element={<PressureConverter />} />
+            <Route path="/energy" element={<div className="p-6 bg-gray-800 rounded-lg">Energy Converter Coming Soon</div>} />
+            <Route path="/speed" element={<div className="p-6 bg-gray-800 rounded-lg">Speed Converter Coming Soon</div>} />
+            <Route path="/pressure" element={<div className="p-6 bg-gray-800 rounded-lg">Pressure Converter Coming Soon</div>} />
           </Routes>
         )}
       </div>

@@ -4,67 +4,71 @@ type Unit = {
   name: string;
   toSeconds: (value: number) => number; // Convert to seconds (base unit)
   fromSeconds: (value: number) => number; // Convert from seconds
+  displayName: string;
 };
 
 const TimeConverter: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>('1');
-  const [fromUnit, setFromUnit] = useState<string>('hours');
-  const [toUnit, setToUnit] = useState<string>('minutes');
+  const [fromUnit, setFromUnit] = useState<string>('minute');
+  const [toUnit, setToUnit] = useState<string>('hour');
   const [result, setResult] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [isConverting, setIsConverting] = useState<boolean>(false);
 
-  // Define units and their conversion factors to/from seconds
   const units: Unit[] = [
-    {
-      name: 'seconds',
+    { 
+      name: 'second', 
+      displayName: 'Seconds (sec)',
       toSeconds: (seconds) => seconds,
       fromSeconds: (seconds) => seconds
     },
-    {
-      name: 'minutes',
+    { 
+      name: 'minute', 
+      displayName: 'Minutes (min)',
       toSeconds: (minutes) => minutes * 60,
       fromSeconds: (seconds) => seconds / 60
     },
-    {
-      name: 'hours',
+    { 
+      name: 'hour', 
+      displayName: 'Hours (hr)',
       toSeconds: (hours) => hours * 3600,
       fromSeconds: (seconds) => seconds / 3600
     },
-    {
-      name: 'days',
+    { 
+      name: 'day', 
+      displayName: 'Days (d)',
       toSeconds: (days) => days * 86400,
       fromSeconds: (seconds) => seconds / 86400
     },
-    {
-      name: 'weeks',
+    { 
+      name: 'week', 
+      displayName: 'Weeks (wk)',
       toSeconds: (weeks) => weeks * 604800,
       fromSeconds: (seconds) => seconds / 604800
     },
-    {
-      name: 'months',
-      toSeconds: (months) => months * 2592000, // approximation: 30 days
-      fromSeconds: (seconds) => seconds / 2592000
+    { 
+      name: 'month', 
+      displayName: 'Months (avg)',
+      toSeconds: (months) => months * 2629746, // Average seconds in a month
+      fromSeconds: (seconds) => seconds / 2629746
     },
-    {
-      name: 'years',
-      toSeconds: (years) => years * 31536000, // non-leap year
-      fromSeconds: (seconds) => seconds / 31536000
+    { 
+      name: 'year', 
+      displayName: 'Years (yr)',
+      toSeconds: (years) => years * 31556952, // Average seconds in a year
+      fromSeconds: (seconds) => seconds / 31556952
     },
-    {
-      name: 'milliseconds',
+    { 
+      name: 'millisecond', 
+      displayName: 'Milliseconds (ms)',
       toSeconds: (ms) => ms / 1000,
       fromSeconds: (seconds) => seconds * 1000
     },
-    {
-      name: 'microseconds',
-      toSeconds: (μs) => μs / 1000000,
+    { 
+      name: 'microsecond', 
+      displayName: 'Microseconds (μs)',
+      toSeconds: (us) => us / 1000000,
       fromSeconds: (seconds) => seconds * 1000000
-    },
-    {
-      name: 'nanoseconds',
-      toSeconds: (ns) => ns / 1000000000,
-      fromSeconds: (seconds) => seconds * 1000000000
     }
   ];
 
@@ -90,32 +94,19 @@ const TimeConverter: React.FC = () => {
       }
       
       try {
-        // First convert to seconds, then to target unit
-        const value = Number(inputValue);
-        if (value < 0 && fromUnit !== 'nanoseconds' && fromUnit !== 'microseconds' && fromUnit !== 'milliseconds') {
-          setError('Time values cannot be negative');
-          setIsConverting(false);
-          return;
-        }
-        
-        const seconds = fromUnitData.toSeconds(value);
+        const seconds = fromUnitData.toSeconds(Number(inputValue));
         const convertedValue = toUnitData.fromSeconds(seconds);
         
         // Format the result depending on its size
         let formattedResult: string;
         
-        if (Math.abs(convertedValue) < 0.000001 || Math.abs(convertedValue) > 1e12) {
-          // Use scientific notation for very small or very large numbers
-          formattedResult = convertedValue.toExponential(6);
-        } else if (Number.isInteger(convertedValue)) {
+        if (Number.isInteger(convertedValue)) {
           formattedResult = convertedValue.toString();
         } else {
-          // Determine appropriate decimal places based on magnitude
-          const absValue = Math.abs(convertedValue);
-          let decimalPlaces = 2;
-          
-          if (absValue < 0.01) decimalPlaces = 6;
-          else if (absValue < 0.1) decimalPlaces = 4;
+          // For time, more decimal places for smaller units
+          const decimalPlaces = 
+            ['microsecond', 'millisecond'].includes(toUnit) ? 6 : 
+            ['second'].includes(toUnit) ? 4 : 2;
           
           formattedResult = convertedValue.toFixed(decimalPlaces).replace(/\.?0+$/, '');
         }
@@ -139,23 +130,6 @@ const TimeConverter: React.FC = () => {
   const handleSwap = () => {
     setFromUnit(toUnit);
     setToUnit(fromUnit);
-  };
-
-  // Get the unit abbreviation
-  const getUnitAbbreviation = (unitName: string): string => {
-    switch(unitName) {
-      case 'seconds': return 's';
-      case 'minutes': return 'min';
-      case 'hours': return 'hr';
-      case 'days': return 'd';
-      case 'weeks': return 'wk';
-      case 'months': return 'mo';
-      case 'years': return 'yr';
-      case 'milliseconds': return 'ms';
-      case 'microseconds': return 'μs';
-      case 'nanoseconds': return 'ns';
-      default: return '';
-    }
   };
 
   return (
@@ -210,7 +184,7 @@ const TimeConverter: React.FC = () => {
               >
                 {units.map((unit) => (
                   <option key={unit.name} value={unit.name}>
-                    {unit.name.charAt(0).toUpperCase() + unit.name.slice(1)} ({getUnitAbbreviation(unit.name)})
+                    {unit.displayName}
                   </option>
                 ))}
               </select>
@@ -241,7 +215,7 @@ const TimeConverter: React.FC = () => {
               >
                 {units.map((unit) => (
                   <option key={unit.name} value={unit.name}>
-                    {unit.name.charAt(0).toUpperCase() + unit.name.slice(1)} ({getUnitAbbreviation(unit.name)})
+                    {unit.displayName}
                   </option>
                 ))}
               </select>
@@ -277,14 +251,22 @@ const TimeConverter: React.FC = () => {
             <div>
               <span className="text-sm text-purple-300">Result:</span>
               <div className="text-3xl font-semibold mt-1 bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-100">
-                {result} {getUnitAbbreviation(toUnit)}
+                {result} {toUnit === 'second' ? 'seconds' : 
+                          toUnit === 'minute' ? 'minutes' : 
+                          toUnit === 'hour' ? 'hours' : 
+                          toUnit === 'day' ? 'days' : 
+                          toUnit === 'week' ? 'weeks' : 
+                          toUnit === 'month' ? 'months' : 
+                          toUnit === 'year' ? 'years' : 
+                          toUnit === 'millisecond' ? 'milliseconds' : 
+                          toUnit === 'microsecond' ? 'microseconds' : ''}
               </div>
             </div>
             <div className="text-left md:text-right mt-4 md:mt-0">
               <span className="text-sm text-purple-300">Examples:</span>
               <div className="mt-1 text-indigo-200 text-sm">
                 <div>1 hour = 60 minutes = 3,600 seconds</div>
-                <div>1 day = 24 hours = 86,400 seconds</div>
+                <div>1 day = 24 hours = 1,440 minutes</div>
               </div>
             </div>
           </div>
@@ -296,38 +278,40 @@ const TimeConverter: React.FC = () => {
           )}
         </div>
         
-        {/* Time Units Information */}
+        {/* Common Conversions section */}
         <div className="mt-10">
           <h3 className="text-xl font-bold mb-6 pb-2 relative inline-block">
-            Time Units
+            Time Conversions
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500/70 to-indigo-600/70 rounded-full"></span>
           </h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-gray-900 bg-opacity-40 p-4 rounded-lg border border-gray-800 hover:border-purple-900/30 transition-all duration-300">
-              <p className="py-1"><span className="text-purple-300 font-medium">Standard Units:</span></p>
-              <p className="py-1">• 1 minute = 60 seconds</p>
-              <p className="py-1">• 1 hour = 60 minutes</p>
-              <p className="py-1">• 1 day = 24 hours</p>
-              <p className="py-1">• 1 week = 7 days</p>
+              <p className="py-1"><span className="text-purple-300 font-medium">Standard Units</span></p>
+              <p className="py-1">1 minute = 60 seconds</p>
+              <p className="py-1">1 hour = 60 minutes</p>
+              <p className="py-1">1 day = 24 hours</p>
+              <p className="py-1">1 week = 7 days</p>
             </div>
             <div className="bg-gray-900 bg-opacity-40 p-4 rounded-lg border border-gray-800 hover:border-purple-900/30 transition-all duration-300">
-              <p className="py-1"><span className="text-purple-300 font-medium">Scientific Units:</span></p>
-              <p className="py-1">• 1 second = 1,000 milliseconds</p>
-              <p className="py-1">• 1 millisecond = 1,000 microseconds</p>
-              <p className="py-1">• 1 microsecond = 1,000 nanoseconds</p>
-              <p className="py-1">• 1 year ≈ 365.24 days (average)</p>
+              <p className="py-1"><span className="text-purple-300 font-medium">Calendar Units</span></p>
+              <p className="py-1">1 year = 365.25 days (average)</p>
+              <p className="py-1">1 month = 30.44 days (average)</p>
+              <p className="py-1">1 decade = 10 years</p>
+              <p className="py-1">1 century = 100 years</p>
             </div>
           </div>
           
           <div className="mt-6 bg-gray-900 bg-opacity-40 p-4 rounded-lg border border-gray-800">
             <p className="text-sm">
-              <span className="text-purple-300 font-medium">Note:</span> For time conversions, we use the following approximations:
+              <span className="text-purple-300 font-medium">Special Time Units:</span>
             </p>
-            <p className="text-sm pt-2">• 1 month ≈ 30 days (average)</p>
-            <p className="text-sm pt-1">• 1 year = 365 days (non-leap year)</p>
-            <p className="text-sm pt-1">• Astronomical time units (light-years, etc.) are not included in this converter</p>
-            <p className="text-sm pt-1">• For precise calendar calculations, consider the specific month/year being calculated</p>
+            <p className="text-sm pt-2">• Millisecond: 1/1,000 of a second</p>
+            <p className="text-sm pt-1">• Microsecond: 1/1,000,000 of a second</p>
+            <p className="text-sm pt-1">• Nanosecond: 1/1,000,000,000 of a second</p>
+            <p className="text-sm pt-3">• Leap year: 366 days</p>
+            <p className="text-sm pt-1">• Julian year: 365.25 days</p>
+            <p className="text-sm pt-1">• Gregorian year: 365.2425 days</p>
           </div>
         </div>
       </div>
