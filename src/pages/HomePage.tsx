@@ -87,7 +87,7 @@ const HomePage: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <span className="mr-2">→</span>
-                <Link to="/unit-converters/mass" className="hover:text-white">Mass Converter</Link>
+                <Link to="/unit-converters/weight" className="hover:text-white">Weight Converter</Link>
               </li>
               <li className="flex items-center">
                 <span className="mr-2">→</span>

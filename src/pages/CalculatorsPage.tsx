@@ -117,40 +117,6 @@ const CalculatorsPage: React.FC = () => {
     }
   ];
 
-  // Unit Converters
-  const unitConverters = [
-    {
-      name: 'Length Converter',
-      path: '/unit-converters/length',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      ),
-      description: 'Convert between different units of length like meters, feet, inches, and miles.'
-    },
-    {
-      name: 'Mass Converter',
-      path: '/unit-converters/mass',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-        </svg>
-      ),
-      description: 'Convert between different units of mass like kilograms, pounds, and ounces.'
-    },
-    {
-      name: 'Temperature Converter',
-      path: '/unit-converters/temperature',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-      description: 'Convert between different temperature scales like Celsius, Fahrenheit, and Kelvin.'
-    }
-  ];
-
   return (
     <div className="min-h-screen relative">
       {/* Grid Background Overlay */}
@@ -250,30 +216,6 @@ const CalculatorsPage: React.FC = () => {
                     <div className="p-6">
                       <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{calculator.name}</h2>
                       <p className="text-gray-300 text-sm">{calculator.description}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-            
-            {/* Unit Converters */}
-            <div className="mb-16">
-              <h2 className="text-2xl font-bold mb-8 pb-2 text-center relative">
-                Unit Converters
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full"></span>
-              </h2>
-              <p className="text-center text-gray-300 mb-8">Precise tools for converting between different units of measurement</p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {unitConverters.map((converter, index) => (
-                  <Link
-                    key={index}
-                    to={converter.path}
-                    className="group flex flex-col bg-gray-900 bg-opacity-80 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition duration-300 shadow-lg hover:shadow-purple-500/20"
-                  >
-                    <div className="p-6">
-                      <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors duration-300">{converter.name}</h2>
-                      <p className="text-gray-300 text-sm">{converter.description}</p>
                     </div>
                   </Link>
                 ))}

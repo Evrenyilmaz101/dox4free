@@ -1,23 +1,18 @@
 import React from 'react';
-import { Routes, Route, Link, useLocation, useParams } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 
 // Unit Converter Components
 import LengthConverter from '../components/unit-converters/LengthConverter';
 import WeightConverter from '../components/unit-converters/WeightConverter';
-import TemperatureConverter from '../components/unit-converters/TemperatureConverter';
-import TimeConverter from '../components/unit-converters/TimeConverter';
-import AreaConverter from '../components/unit-converters/AreaConverter';
-import VolumeConverter from '../components/unit-converters/VolumeConverter';
-import MassConverter from '../components/unit-converters/MassConverter';
 
 // Placeholder components for now
-const EnergyConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Energy Converter Coming Soon</div>;
-const SpeedConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Speed Converter Coming Soon</div>;
-const PressureConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Pressure Converter Coming Soon</div>;
+const TemperatureConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Temperature Converter Coming Soon</div>;
+const TimeConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Time Converter Coming Soon</div>;
+const AreaConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Area Converter Coming Soon</div>;
+const VolumeConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Volume Converter Coming Soon</div>;
 
 const UnitConverterPage: React.FC = () => {
   const location = useLocation();
-  const { unit } = useParams<{ unit?: string }>();
   const isRootPath = location.pathname === '/unit-converters';
 
   // Common Measurements
@@ -34,7 +29,7 @@ const UnitConverterPage: React.FC = () => {
     },
     { 
       name: 'Weight & Mass', 
-      path: '/unit-converters/mass',
+      path: '/unit-converters/weight',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
@@ -61,16 +56,6 @@ const UnitConverterPage: React.FC = () => {
         </svg>
       ),
       description: 'Convert between seconds, minutes, hours, days, years, and astronomical time units' 
-    },
-    { 
-      name: 'Mass', 
-      path: '/unit-converters/mass',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-        </svg>
-      ),
-      description: 'Convert between kilograms, pounds, ounces, stone, tons and specialty mass measurements' 
     }
   ];
 
@@ -242,14 +227,14 @@ const UnitConverterPage: React.FC = () => {
         ) : (
           <Routes>
             <Route path="/length" element={<LengthConverter />} />
+            <Route path="/weight" element={<WeightConverter />} />
             <Route path="/temperature" element={<TemperatureConverter />} />
             <Route path="/time" element={<TimeConverter />} />
             <Route path="/area" element={<AreaConverter />} />
             <Route path="/volume" element={<VolumeConverter />} />
-            <Route path="/mass" element={<MassConverter />} />
-            <Route path="/energy" element={<EnergyConverter />} />
-            <Route path="/speed" element={<SpeedConverter />} />
-            <Route path="/pressure" element={<PressureConverter />} />
+            <Route path="/energy" element={<div className="p-6 bg-gray-800 rounded-lg">Energy Converter Coming Soon</div>} />
+            <Route path="/speed" element={<div className="p-6 bg-gray-800 rounded-lg">Speed Converter Coming Soon</div>} />
+            <Route path="/pressure" element={<div className="p-6 bg-gray-800 rounded-lg">Pressure Converter Coming Soon</div>} />
           </Routes>
         )}
       </div>

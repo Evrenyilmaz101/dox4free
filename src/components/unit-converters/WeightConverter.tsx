@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 type Unit = {
   name: string;
-  conversion: number; // Conversion rate to grams (base unit)
+  conversion: number; // Conversion rate to kilograms (base unit)
 };
 
 const WeightConverter: React.FC = () => {
@@ -14,15 +14,14 @@ const WeightConverter: React.FC = () => {
   const [isConverting, setIsConverting] = useState<boolean>(false);
 
   const units: Unit[] = [
-    { name: 'milligram', conversion: 0.001 },
-    { name: 'gram', conversion: 1 },
-    { name: 'kilogram', conversion: 1000 },
-    { name: 'ton (metric)', conversion: 1000000 },
-    { name: 'ounce', conversion: 28.3495 },
-    { name: 'pound', conversion: 453.592 },
-    { name: 'stone', conversion: 6350.29 },
-    { name: 'ton (US)', conversion: 907185 },
-    { name: 'ton (UK)', conversion: 1016046 },
+    { name: 'gram', conversion: 0.001 },
+    { name: 'kilogram', conversion: 1 },
+    { name: 'metric ton', conversion: 1000 },
+    { name: 'ounce', conversion: 0.0283495 },
+    { name: 'pound', conversion: 0.453592 },
+    { name: 'stone', conversion: 6.35029 },
+    { name: 'us ton', conversion: 907.185 },
+    { name: 'imperial ton', conversion: 1016.05 },
   ];
 
   const convert = () => {
@@ -46,9 +45,9 @@ const WeightConverter: React.FC = () => {
         return;
       }
       
-      // Convert from input unit to grams, then to output unit
-      const grams = Number(inputValue) * fromUnitData.conversion;
-      const convertedValue = grams / toUnitData.conversion;
+      // Convert from input unit to kilograms, then to output unit
+      const kilograms = Number(inputValue) * fromUnitData.conversion;
+      const convertedValue = kilograms / toUnitData.conversion;
       
       // Format the result depending on its size
       let formattedResult: string;
@@ -226,13 +225,13 @@ const WeightConverter: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-gray-900 bg-opacity-40 p-4 rounded-lg border border-gray-800 hover:border-purple-900/30 transition-all duration-300">
               <p className="py-1">1 kilogram = <span className="text-purple-300 font-medium">2.20462 pounds</span></p>
-              <p className="py-1">1 pound = <span className="text-purple-300 font-medium">16 ounces</span></p>
-              <p className="py-1">1 kilogram = <span className="text-purple-300 font-medium">1000 grams</span></p>
+              <p className="py-1">1 gram = <span className="text-purple-300 font-medium">0.035274 ounces</span></p>
+              <p className="py-1">1 metric ton = <span className="text-purple-300 font-medium">2204.62 pounds</span></p>
             </div>
             <div className="bg-gray-900 bg-opacity-40 p-4 rounded-lg border border-gray-800 hover:border-purple-900/30 transition-all duration-300">
               <p className="py-1">1 pound = <span className="text-purple-300 font-medium">0.453592 kilograms</span></p>
-              <p className="py-1">1 stone = <span className="text-purple-300 font-medium">14 pounds</span></p>
-              <p className="py-1">1 ton (US) = <span className="text-purple-300 font-medium">2000 pounds</span></p>
+              <p className="py-1">1 ounce = <span className="text-purple-300 font-medium">28.3495 grams</span></p>
+              <p className="py-1">1 stone = <span className="text-purple-300 font-medium">6.35029 kilograms</span></p>
             </div>
           </div>
         </div>
