@@ -71,7 +71,7 @@ const LengthConverter: React.FC = () => {
   };
 
   return (
-    <div className="p-8 md:p-12 max-w-5xl mx-auto" style={{ backgroundColor: 'black' }}>
+    <div className="p-8" style={{ backgroundColor: 'black' }}>
       <h2 className="text-2xl font-bold mb-8">Length Converter</h2>
       
       {/* Value section */}
@@ -88,12 +88,16 @@ const LengthConverter: React.FC = () => {
       </div>
       
       {/* From/To section with swap button */}
-      <div className="flex flex-col md:flex-row gap-6 mb-6 relative">
-        <div className="flex-1">
-          <label htmlFor="fromUnit" className="block mb-2 text-sm font-medium">From</label>
+      <div className="mb-6">
+        <div className="flex justify-between mb-2">
+          <label htmlFor="fromUnit" className="text-sm font-medium">From</label>
+          <label htmlFor="toUnit" className="text-sm font-medium">To</label>
+        </div>
+        
+        <div className="flex items-center space-x-4">
           <select
             id="fromUnit"
-            className="w-full p-4 bg-gray-900 border border-gray-800 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
+            className="flex-1 p-4 bg-gray-900 border border-gray-800 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
             value={fromUnit}
             onChange={(e) => setFromUnit(e.target.value)}
           >
@@ -103,26 +107,20 @@ const LengthConverter: React.FC = () => {
               </option>
             ))}
           </select>
-        </div>
-        
-        {/* Swap button - absolute positioned in the middle on desktop */}
-        <div className="flex justify-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 my-2 md:my-0">
+          
           <button
             onClick={handleSwap}
-            className="bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full transition duration-300"
+            className="flex-shrink-0 bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full transition duration-300 z-10"
             aria-label="Swap units"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
             </svg>
           </button>
-        </div>
-        
-        <div className="flex-1">
-          <label htmlFor="toUnit" className="block mb-2 text-sm font-medium">To</label>
+          
           <select
             id="toUnit"
-            className="w-full p-4 bg-gray-900 border border-gray-800 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
+            className="flex-1 p-4 bg-gray-900 border border-gray-800 rounded-md text-white focus:ring-purple-500 focus:border-purple-500"
             value={toUnit}
             onChange={(e) => setToUnit(e.target.value)}
           >
