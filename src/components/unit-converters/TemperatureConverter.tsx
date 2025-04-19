@@ -104,7 +104,6 @@ const TemperatureConverter: React.FC = () => {
   };
 
   // Helper to format temperature when showing formula
-  const formatTemperature = (value: number): string => {
     return Number.isInteger(value) ? value.toString() : value.toFixed(2);
   };
 
