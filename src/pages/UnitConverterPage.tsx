@@ -4,7 +4,7 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 // Unit Converter Components
 import LengthConverter from '../components/unit-converters/LengthConverter';
 import WeightConverter from '../components/unit-converters/WeightConverter';
-import TemperatureConverter from '../components/unit-converters/TemperatureConverter';
+// Temperature Converter placeholder until fix is deployed
 import TimeConverter from '../components/unit-converters/TimeConverter';
 
 // Placeholder components for now
@@ -228,7 +228,7 @@ const UnitConverterPage: React.FC = () => {
           <Routes>
             <Route path="/length" element={<LengthConverter />} />
             <Route path="/weight" element={<WeightConverter />} />
-            <Route path="/temperature" element={<TemperatureConverter />} />
+            <Route path="/temperature" element={<div className="p-6 bg-gray-800 rounded-lg">Temperature Converter Coming Soon</div>} />
             <Route path="/time" element={<TimeConverter />} />
             <Route path="/area" element={<AreaConverter />} />
             <Route path="/volume" element={<VolumeConverter />} />
