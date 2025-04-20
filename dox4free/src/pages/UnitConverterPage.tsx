@@ -5,10 +5,10 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import LengthConverter from '../components/unit-converters/LengthConverter';
 import WeightConverter from '../components/unit-converters/WeightConverter';
 import TemperatureConverter from '../components/unit-converters/TemperatureConverter';
+import AreaConverter from '../components/unit-converters/AreaConverter';
 
 // Placeholder components for now
 const TimeConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Time Converter Coming Soon</div>;
-const AreaConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Area Converter Coming Soon</div>;
 const VolumeConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Volume Converter Coming Soon</div>;
 
 const UnitConverterPage: React.FC = () => {

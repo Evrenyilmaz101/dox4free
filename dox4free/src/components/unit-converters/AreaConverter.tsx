@@ -2,40 +2,28 @@ import React, { useState, useEffect } from 'react';
 
 type Unit = {
   name: string;
-  toBase: (value: number) => number; // Convert from this unit to Kelvin (base unit)
-  fromBase: (value: number) => number; // Convert from Kelvin to this unit
+  conversion: number; // Conversion rate to square meters (base unit)
 };
 
-const TemperatureConverter: React.FC = () => {
-  const [inputValue, setInputValue] = useState<string>('0');
-  const [fromUnit, setFromUnit] = useState<string>('celsius');
-  const [toUnit, setToUnit] = useState<string>('fahrenheit');
+const AreaConverter: React.FC = () => {
+  const [inputValue, setInputValue] = useState<string>('1');
+  const [fromUnit, setFromUnit] = useState<string>('square meter');
+  const [toUnit, setToUnit] = useState<string>('square foot');
   const [result, setResult] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [isConverting, setIsConverting] = useState<boolean>(false);
 
-  // Temperature conversions using functions for nonlinear conversions
   const units: Unit[] = [
-    { 
-      name: 'celsius', 
-      toBase: (c: number) => c + 273.15, // C to K
-      fromBase: (k: number) => k - 273.15 // K to C
-    },
-    { 
-      name: 'fahrenheit', 
-      toBase: (f: number) => (f - 32) * 5/9 + 273.15, // F to K
-      fromBase: (k: number) => (k - 273.15) * 9/5 + 32 // K to F
-    },
-    { 
-      name: 'kelvin', 
-      toBase: (k: number) => k, // K to K (identity)
-      fromBase: (k: number) => k // K to K (identity)
-    },
-    { 
-      name: 'rankine', 
-      toBase: (r: number) => r * 5/9, // R to K
-      fromBase: (k: number) => k * 9/5 // K to R
-    }
+    { name: 'square millimeter', conversion: 0.000001 },
+    { name: 'square centimeter', conversion: 0.0001 },
+    { name: 'square meter', conversion: 1 },
+    { name: 'square kilometer', conversion: 1000000 },
+    { name: 'square inch', conversion: 0.00064516 },
+    { name: 'square foot', conversion: 0.09290304 },
+    { name: 'square yard', conversion: 0.83612736 },
+    { name: 'square mile', conversion: 2589988.11 },
+    { name: 'acre', conversion: 4046.86 },
+    { name: 'hectare', conversion: 10000 },
   ];
 
   const convert = () => {
@@ -59,38 +47,18 @@ const TemperatureConverter: React.FC = () => {
         return;
       }
       
-      // Convert from input unit to Kelvin, then to output unit
-      const kelvin = fromUnitData.toBase(Number(inputValue));
-      const convertedValue = toUnitData.fromBase(kelvin);
+      // Convert from input unit to square meters, then to output unit
+      const squareMeters = Number(inputValue) * fromUnitData.conversion;
+      const convertedValue = squareMeters / toUnitData.conversion;
       
-      // Check for absolute zero violations in the original input
-      if (fromUnit === 'celsius' && Number(inputValue) < -273.15) {
-        setError('Temperature below absolute zero (-273.15°C)');
-        setIsConverting(false);
-        return;
-      } else if (fromUnit === 'fahrenheit' && Number(inputValue) < -459.67) {
-        setError('Temperature below absolute zero (-459.67°F)');
-        setIsConverting(false);
-        return;
-      } else if (fromUnit === 'kelvin' && Number(inputValue) < 0) {
-        setError('Temperature below absolute zero (0K)');
-        setIsConverting(false);
-        return;
-      } else if (fromUnit === 'rankine' && Number(inputValue) < 0) {
-        setError('Temperature below absolute zero (0°R)');
-        setIsConverting(false);
-        return;
-      }
-      
-      // Format the result - temperature usually needs fewer decimal places
+      // Format the result depending on its size
       let formattedResult: string;
-      if (Math.abs(convertedValue) < 0.01 || Math.abs(convertedValue) > 10000000) {
-        formattedResult = convertedValue.toExponential(4);
+      if (convertedValue < 0.0001 || convertedValue > 10000000) {
+        formattedResult = convertedValue.toExponential(6);
       } else if (Number.isInteger(convertedValue)) {
         formattedResult = convertedValue.toString();
       } else {
-        // Temperature typically needs fewer decimal places for readability
-        formattedResult = convertedValue.toFixed(2).replace(/\.?0+$/, '');
+        formattedResult = convertedValue.toPrecision(8).replace(/\.?0+$/, '');
       }
       
       setResult(formattedResult);
@@ -110,15 +78,17 @@ const TemperatureConverter: React.FC = () => {
     setToUnit(fromUnit);
   };
 
-  // Get the proper symbol for temperature units
-  const getUnitSymbol = (unitName: string): string => {
-    switch (unitName) {
-      case 'celsius': return '°C';
-      case 'fahrenheit': return '°F';
-      case 'kelvin': return 'K';
-      case 'rankine': return '°R';
-      default: return '';
+  // Helper function to format unit names for display
+  const formatUnitName = (name: string, value: string) => {
+    // For plural form handling
+    if (value !== '1') {
+      if (name.startsWith('square')) {
+        return name;
+      } else {
+        return name + 's';
+      }
     }
+    return name;
   };
 
   return (
@@ -136,7 +106,7 @@ const TemperatureConverter: React.FC = () => {
 
       <div className="relative z-10">
         <h2 className="text-3xl font-bold mb-8 pb-2 relative inline-block">
-          Temperature Converter
+          Area Converter
           <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full"></span>
         </h2>
         
@@ -240,13 +210,15 @@ const TemperatureConverter: React.FC = () => {
             <div>
               <span className="text-sm text-purple-300">Result:</span>
               <div className="text-3xl font-semibold mt-1 bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-100">
-                {result} {getUnitSymbol(toUnit)}
+                {result} {formatUnitName(toUnit, result)}
               </div>
             </div>
             <div className="text-left md:text-right mt-4 md:mt-0">
-              <span className="text-sm text-purple-300">Converted from:</span>
+              <span className="text-sm text-purple-300">Formula:</span>
               <div className="mt-1 text-indigo-200">
-                {inputValue} {getUnitSymbol(fromUnit)}
+                {fromUnit !== toUnit && (
+                  <>1 {fromUnit} = {(units.find(u => u.name === fromUnit)?.conversion || 0) / (units.find(u => u.name === toUnit)?.conversion || 1)} {toUnit}</>
+                )}
               </div>
             </div>
           </div>
@@ -267,49 +239,43 @@ const TemperatureConverter: React.FC = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-gray-900 bg-opacity-40 p-4 rounded-lg border border-gray-800 hover:border-purple-900/30 transition-all duration-300">
-              <p className="py-1">0°C = <span className="text-purple-300 font-medium">32°F</span> (freezing point of water)</p>
-              <p className="py-1">100°C = <span className="text-purple-300 font-medium">212°F</span> (boiling point of water)</p>
-              <p className="py-1">-273.15°C = <span className="text-purple-300 font-medium">0K</span> (absolute zero)</p>
+              <p className="py-1">1 acre = <span className="text-purple-300 font-medium">4,046.86 square meters</span></p>
+              <p className="py-1">1 hectare = <span className="text-purple-300 font-medium">10,000 square meters</span></p>
+              <p className="py-1">1 square mile = <span className="text-purple-300 font-medium">640 acres</span></p>
             </div>
             <div className="bg-gray-900 bg-opacity-40 p-4 rounded-lg border border-gray-800 hover:border-purple-900/30 transition-all duration-300">
-              <p className="py-1">°F to °C: <span className="text-purple-300 font-medium">(°F - 32) × 5/9</span></p>
-              <p className="py-1">°C to °F: <span className="text-purple-300 font-medium">(°C × 9/5) + 32</span></p>
-              <p className="py-1">K to °C: <span className="text-purple-300 font-medium">K - 273.15</span></p>
+              <p className="py-1">1 square meter = <span className="text-purple-300 font-medium">10.764 square feet</span></p>
+              <p className="py-1">1 square kilometer = <span className="text-purple-300 font-medium">0.386 square miles</span></p>
+              <p className="py-1">1 acre = <span className="text-purple-300 font-medium">43,560 square feet</span></p>
             </div>
           </div>
         </div>
         
-        {/* Temperature comparison visualization */}
+        {/* Area visualization */}
         <div className="mt-10">
           <h3 className="text-xl font-bold mb-6 pb-2 relative inline-block">
-            Temperature Scale
+            Area Comparison
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500/70 to-indigo-600/70 rounded-full"></span>
           </h3>
           
-          <div className="relative h-16 w-full bg-gradient-to-r from-blue-600 via-purple-500 to-red-600 rounded-lg overflow-hidden">
-            {/* Key temperature markers */}
-            <div className="absolute top-0 left-0 h-full w-1 bg-white"></div>
-            <div className="absolute top-0 left-1/5 h-full w-0.5 bg-white/70"></div>
-            <div className="absolute top-0 left-2/5 h-full w-0.5 bg-white/70"></div>
-            <div className="absolute top-0 left-3/5 h-full w-0.5 bg-white/70"></div>
-            <div className="absolute top-0 left-4/5 h-full w-0.5 bg-white/70"></div>
-            <div className="absolute top-0 right-0 h-full w-1 bg-white"></div>
+          <div className="relative h-64 w-full bg-gray-900 bg-opacity-40 rounded-lg border border-gray-800 overflow-hidden">
+            {/* Area visualization boxes */}
+            <div className="absolute bottom-2 left-2 w-4 h-4 bg-purple-500 border border-white" title="1 square meter"></div>
+            <div className="absolute bottom-2 left-8 w-12 h-12 bg-indigo-500/70 border border-white" title="1 square yard"></div>
+            <div className="absolute bottom-2 left-24 w-24 h-24 bg-blue-500/60 border border-white" title="1 square perch"></div>
+            <div className="absolute bottom-2 right-24 w-48 h-48 bg-green-500/40 border border-white" title="1 square rod"></div>
+            <div className="absolute bottom-2 right-2 w-16 h-16 bg-pink-500/50 border border-white" title="1 square fathom"></div>
             
-            {/* Temperature labels */}
-            <div className="absolute -bottom-6 left-0 text-xs text-gray-300">-273°C</div>
-            <div className="absolute -bottom-6 left-1/5 text-xs text-gray-300">0°C</div>
-            <div className="absolute -bottom-6 left-2/5 text-xs text-gray-300">20°C</div>
-            <div className="absolute -bottom-6 left-3/5 text-xs text-gray-300">37°C</div>
-            <div className="absolute -bottom-6 left-4/5 text-xs text-gray-300">100°C</div>
-            <div className="absolute -bottom-6 right-0 text-xs text-gray-300">3000°C</div>
+            {/* Labels */}
+            <div className="absolute top-2 left-2 text-xs text-white">Square Meter</div>
+            <div className="absolute top-2 left-8 text-xs text-white">Square Yard</div>
+            <div className="absolute top-2 left-24 text-xs text-white">Small Plot</div>
+            <div className="absolute top-2 right-24 text-xs text-white">Large Plot</div>
+            <div className="absolute top-2 right-2 text-xs text-white">Room Size</div>
             
-            {/* Temperature descriptions */}
-            <div className="absolute -top-6 left-0 text-xs text-indigo-300">Absolute Zero</div>
-            <div className="absolute -top-6 left-1/5 text-xs text-blue-300">Freezing</div>
-            <div className="absolute -top-6 left-2/5 text-xs text-green-300">Room Temp</div>
-            <div className="absolute -top-6 left-3/5 text-xs text-yellow-300">Body Temp</div>
-            <div className="absolute -top-6 left-4/5 text-xs text-orange-300">Boiling</div>
-            <div className="absolute -top-6 right-0 text-xs text-red-300">Very Hot</div>
+            <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-r from-purple-900/30 to-indigo-900/30 flex items-center px-4">
+              <span className="text-xs text-gray-300">Note: Visualization not to scale - for illustration only</span>
+            </div>
           </div>
         </div>
       </div>
@@ -317,4 +283,4 @@ const TemperatureConverter: React.FC = () => {
   );
 };
 
-export default TemperatureConverter;
+export default AreaConverter; 
