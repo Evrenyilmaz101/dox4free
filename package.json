@@ -4,7 +4,7 @@
   "private": true,
   "description": "A free online platform for unit conversions, document conversions, and calculators",
   "author": "Dox4Free Team",
-  "homepage": "https://dox4free.com",
+  "homepage": "https://Evrenyilmaz101.github.io/dox4free",
   "repository": {
     "type": "git",
     "url": "https://github.com/dox4free/dox4free.git"
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.3",
     "postcss-import": "^15.1.0",
     "postcss-nesting": "^12.0.2",
@@ -47,6 +48,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "sitemap": "npx sitemap-generator-cli https://dox4free.com -f public/sitemap.xml"
   },
   "eslintConfig": {
