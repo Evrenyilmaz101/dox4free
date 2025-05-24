@@ -13,7 +13,37 @@ const LoanCalculator: React.FC = () => {
   const [calculation, setCalculation] = useState<LoanCalculation | null>(null);
   const [showAmortization, setShowAmortization] = useState<boolean>(false);
 
-    const calculateLoan = useCallback(() => {    const principal = parseFloat(loanAmount);    const annualRate = parseFloat(interestRate) / 100;    const years = parseFloat(loanTerm);    if (!principal || !annualRate || !years) {      setCalculation(null);      return;    }    const monthlyRate = annualRate / 12;    const numberOfPayments = years * 12;    // Monthly payment calculation using the formula: M = P * (r * (1 + r)^n) / ((1 + r)^n - 1)    const monthlyPayment = principal *       (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) /      (Math.pow(1 + monthlyRate, numberOfPayments) - 1);    const totalAmount = monthlyPayment * numberOfPayments;    const totalInterest = totalAmount - principal;    setCalculation({      monthlyPayment,      totalInterest,      totalAmount    });  }, [loanAmount, interestRate, loanTerm]);  useEffect(() => {    calculateLoan();  }, [calculateLoan]);
+  const calculateLoan = useCallback(() => {
+    const principal = parseFloat(loanAmount);
+    const annualRate = parseFloat(interestRate) / 100;
+    const years = parseFloat(loanTerm);
+
+    if (!principal || !annualRate || !years) {
+      setCalculation(null);
+      return;
+    }
+
+    const monthlyRate = annualRate / 12;
+    const numberOfPayments = years * 12;
+
+    // Monthly payment calculation using the formula: M = P * (r * (1 + r)^n) / ((1 + r)^n - 1)
+    const monthlyPayment = principal * 
+      (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) /
+      (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+
+    const totalAmount = monthlyPayment * numberOfPayments;
+    const totalInterest = totalAmount - principal;
+
+    setCalculation({
+      monthlyPayment,
+      totalInterest,
+      totalAmount
+    });
+  }, [loanAmount, interestRate, loanTerm]);
+
+  useEffect(() => {
+    calculateLoan();
+  }, [calculateLoan]);
 
   const formatCurrency = (amount: number): string => {
     return new Intl.NumberFormat('en-US', {
