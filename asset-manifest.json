@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/dox4free/static/css/main.969774c7.css",
+    "main.js": "/dox4free/static/js/main.2d5f3fc9.js",
+    "static/js/453.f9176dbf.chunk.js": "/dox4free/static/js/453.f9176dbf.chunk.js",
+    "index.html": "/dox4free/index.html",
+    "main.969774c7.css.map": "/dox4free/static/css/main.969774c7.css.map",
+    "main.2d5f3fc9.js.map": "/dox4free/static/js/main.2d5f3fc9.js.map",
+    "453.f9176dbf.chunk.js.map": "/dox4free/static/js/453.f9176dbf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.969774c7.css",
+    "static/js/main.2d5f3fc9.js"
+  ]
+}
