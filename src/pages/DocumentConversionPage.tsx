@@ -1,12 +1,12 @@
 import React from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 
-// Document Conversion Components (placeholders for now)
-const PdfToWordConverter = () => <div className="p-6 bg-gray-800 rounded-lg">PDF to Word Converter Coming Soon</div>;
-const PdfMerger = () => <div className="p-6 bg-gray-800 rounded-lg">PDF Merger Coming Soon</div>;
-const PdfSplitter = () => <div className="p-6 bg-gray-800 rounded-lg">PDF Splitter Coming Soon</div>;
-const ImageResizer = () => <div className="p-6 bg-gray-800 rounded-lg">Image Resizer Coming Soon</div>;
-const JpgToPdfConverter = () => <div className="p-6 bg-gray-800 rounded-lg">JPG to PDF Converter Coming Soon</div>;
+// Document Conversion Components
+import PdfToWordConverter from '../components/document-conversion/PdfToWordConverter';
+import PdfMerger from '../components/document-conversion/PdfMerger';
+import PdfSplitter from '../components/document-conversion/PdfSplitter';
+import ImageResizer from '../components/document-conversion/ImageResizer';
+import JpgToPdfConverter from '../components/document-conversion/JpgToPdfConverter';
 
 const DocumentConversionPage: React.FC = () => {
   const location = useLocation();

@@ -3,12 +3,12 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 
 // Calculator Components
 import BmiCalculator from '../components/calculators/BmiCalculator';
+import ScientificCalculator from '../components/calculators/ScientificCalculator';
+import LoanCalculator from '../components/calculators/LoanCalculator';
+import PercentageCalculator from '../components/calculators/PercentageCalculator';
 
 // Placeholder components for now
 const CalorieCalculator = () => <div className="p-6 bg-gray-800 rounded-lg">Calorie Calculator Coming Soon</div>;
-const LoanCalculator = () => <div className="p-6 bg-gray-800 rounded-lg">Loan Calculator Coming Soon</div>;
-const PercentageCalculator = () => <div className="p-6 bg-gray-800 rounded-lg">Percentage Calculator Coming Soon</div>;
-const ScientificCalculator = () => <div className="p-6 bg-gray-800 rounded-lg">Scientific Calculator Coming Soon</div>;
 const GeometryCalculator = () => <div className="p-6 bg-gray-800 rounded-lg">Geometry Calculator Coming Soon</div>;
 
 const CalculatorsPage: React.FC = () => {

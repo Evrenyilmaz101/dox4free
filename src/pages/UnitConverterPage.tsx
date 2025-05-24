@@ -4,12 +4,15 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 // Unit Converter Components
 import LengthConverter from '../components/unit-converters/LengthConverter';
 import WeightConverter from '../components/unit-converters/WeightConverter';
-// Temperature Converter placeholder until fix is deployed
 import TimeConverter from '../components/unit-converters/TimeConverter';
+import AreaConverter from '../components/unit-converters/AreaConverter';
+import VolumeConverter from '../components/unit-converters/VolumeConverter';
+import SpeedConverter from '../components/unit-converters/SpeedConverter';
+import EnergyConverter from '../components/unit-converters/EnergyConverter';
+import PressureConverter from '../components/unit-converters/PressureConverter';
 
-// Placeholder components for now
-const AreaConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Area Converter Coming Soon</div>;
-const VolumeConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Volume Converter Coming Soon</div>;
+// Temperature Converter has issues, placeholder for now
+const TemperatureConverter = () => <div className="p-6 bg-gray-800 rounded-lg">Temperature Converter Coming Soon</div>;
 
 const UnitConverterPage: React.FC = () => {
   const location = useLocation();
@@ -228,13 +231,13 @@ const UnitConverterPage: React.FC = () => {
           <Routes>
             <Route path="/length" element={<LengthConverter />} />
             <Route path="/weight" element={<WeightConverter />} />
-            <Route path="/temperature" element={<div className="p-6 bg-gray-800 rounded-lg">Temperature Converter Coming Soon</div>} />
+            <Route path="/temperature" element={<TemperatureConverter />} />
             <Route path="/time" element={<TimeConverter />} />
             <Route path="/area" element={<AreaConverter />} />
             <Route path="/volume" element={<VolumeConverter />} />
-            <Route path="/energy" element={<div className="p-6 bg-gray-800 rounded-lg">Energy Converter Coming Soon</div>} />
-            <Route path="/speed" element={<div className="p-6 bg-gray-800 rounded-lg">Speed Converter Coming Soon</div>} />
-            <Route path="/pressure" element={<div className="p-6 bg-gray-800 rounded-lg">Pressure Converter Coming Soon</div>} />
+            <Route path="/energy" element={<EnergyConverter />} />
+            <Route path="/speed" element={<SpeedConverter />} />
+            <Route path="/pressure" element={<PressureConverter />} />
           </Routes>
         )}
       </div>
